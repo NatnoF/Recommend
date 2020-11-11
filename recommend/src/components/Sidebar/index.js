@@ -7,7 +7,7 @@ const Sidebar = () => {
                 <CloseIcon />
             </Icon>
         </SidebarContainer>
-    )
+    );
 }
 
 export default Sidebar
