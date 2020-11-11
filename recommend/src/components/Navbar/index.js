@@ -10,6 +10,16 @@ const Navbar = () => {
                     <NavLogo to="/" >
                         Recommend
                     </NavLogo>
+
+                    <MobileIcon>
+                        <FaBars />
+                    </MobileIcon>
+
+                    <NavMenu>
+                        <NavItem>
+                            <NavLinks to="about" >About</NavLinks>
+                        </NavItem>
+                    </NavMenu>
                 </NavbarContainer>
             </Nav>
         </>
