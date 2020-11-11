@@ -1,9 +1,10 @@
 import './App.css';
+import Navbar from './components/Navbar/index';
 
 function App() {
   return (
     <div className="App">
-      <h1>*air horn* YOOOOOOOOOOOOOOOOO!!! *air horn*</h1>
+      <Navbar />
     </div>
   );
 }
