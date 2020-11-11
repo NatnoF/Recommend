@@ -32,6 +32,10 @@ const Navbar = () => {
             </NavItem>
 
             <NavItem>
+              <NavLinks to="placeholder">Placeholder</NavLinks>
+            </NavItem>
+
+            <NavItem>
               <NavLinks to="signup">Sign Up</NavLinks>
             </NavItem>
 
