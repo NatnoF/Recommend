@@ -1,7 +1,7 @@
 import './App.css';
-import Navbar from './components/Navbar/index';
+import Navbar from './components/Navbar';
 import {BrowserRouter as Router} from 'react-router-dom';
-import Sidebar from './components/Sidebar/index';
+import Sidebar from './components/Sidebar';
 
 function App() {
   return (
@@ -10,6 +10,6 @@ function App() {
       <Navbar />
     </Router>
   );
-};
+}
 
 export default App;
