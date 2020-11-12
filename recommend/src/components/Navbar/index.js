@@ -12,14 +12,14 @@ import {
   NavBtnLink,
 } from "./NavbarProperties";
 
-const Navbar = () => {
+const Navbar = ({toggle}) => {
   return (
     <>
       <Nav>
         <NavbarContainer>
           <NavLogo to="/">Recommend</NavLogo>
 
-          <MobileIcon>
+          <MobileIcon onClick={toggle}>
             <FaBars />
           </MobileIcon>
 
