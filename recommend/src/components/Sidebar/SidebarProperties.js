@@ -6,8 +6,8 @@ import {FaTimes} from 'react-icons/fa';
 export const SidebarContainer = styled.aside`
     position: fixed;
     z-index: 999;
-    width: 100%auto;
-    height: 100%auto;
+    width: 100%;
+    height: 100%;
     background: #12232E;
     align-items: center;
     top: 0;
