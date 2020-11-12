@@ -10,7 +10,33 @@ function Cards(props) {
                 <div className="cards__wrapper">
                     <ul className="cards__items">
                         <CardItem 
-                        src=""
+                        src="images/library.jpeg"
+                        text="placeholder book text"
+                        label="book genre"
+                        path="/services"
+                        />
+                        <CardItem 
+                        src="images/library.jpeg"
+                        text="placeholder book text"
+                        label="book genre"
+                        path="/services"
+                        />
+                    </ul>
+                    <ul className="cards__items">
+                        <CardItem 
+                        src="images/library.jpeg"
+                        text="placeholder book text"
+                        label="book genre"
+                        path="/services"
+                        />
+                        <CardItem 
+                        src="images/library.jpeg"
+                        text="placeholder book text"
+                        label="book genre"
+                        path="/services"
+                        />
+                        <CardItem 
+                        src="images/library.jpeg"
                         text="placeholder book text"
                         label="book genre"
                         path="/services"
@@ -19,7 +45,7 @@ function Cards(props) {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default Cards;
