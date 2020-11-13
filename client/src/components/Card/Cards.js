@@ -42,6 +42,26 @@ function Cards(props) {
                         path="/services"
                         />
                     </ul>
+                    <ul className="cards__items">
+                        <CardItem 
+                        src="images/library.jpeg"
+                        text="placeholder book text"
+                        label="book genre"
+                        path="/services"
+                        />
+                        <CardItem 
+                        src="images/library.jpeg"
+                        text="placeholder book text"
+                        label="book genre"
+                        path="/services"
+                        />
+                        <CardItem 
+                        src="images/library.jpeg"
+                        text="placeholder book text"
+                        label="book genre"
+                        path="/services"
+                        />
+                    </ul>
                 </div>
             </div>
         </div>
