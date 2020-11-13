@@ -4,13 +4,13 @@ const Schema = mongoose.Schema;
 const reviewSchema = new Schema({
   recommend: { type: Boolean, required: true },
   text: { type: String, required: true  },
-  userId: { type: Number, required: true },
+  userId: { type: String, required: true },
   likes: { type: Number },
   dislikes: { type: Number },
-  bookId: { type: Number, required: true },
+  bookId: { type: String, required: true },
   comments: { type: [String] }
 });
 
-const Book = mongoose.model("Review", reviewSchema);
+const Review = mongoose.model("Review", reviewSchema);
 
-module.exports = Book;
+module.exports = Review;
