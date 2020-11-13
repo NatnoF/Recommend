@@ -10,6 +10,7 @@ import {
   NavLinks,
   NavBtn,
   NavBtnLink,
+  NavPages
 } from "./NavbarProperties";
 
 const Navbar = ({toggle}) => {
@@ -38,7 +39,7 @@ const Navbar = ({toggle}) => {
             </NavItem>
 
             <NavItem>
-              <NavLinks to="signup">Sign Up</NavLinks>
+              <NavPages to="/signup">Sign Up</NavPages>
             </NavItem>
 
           </NavMenu>

@@ -8,8 +8,7 @@ import {
     FormH1,
     FormLabel,
     FormInput,
-    FormButton,
-    Text
+    FormButton
 } from './SignUpProperties';
 
 
