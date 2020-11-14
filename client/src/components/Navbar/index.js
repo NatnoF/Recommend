@@ -35,7 +35,7 @@ const Navbar = ({toggle}) => {
             </NavItem>
 
             <NavItem>
-              <NavLinks to="placeholder">Placeholder</NavLinks>
+              <NavPages to="/library">Library</NavPages>
             </NavItem>
 
             <NavItem>
