@@ -36,14 +36,6 @@ function BookResults() {
               label="book genre"
               path="/services"
             />
-          </ul>
-          <ul className="cards__items">
-            <CardItem
-              src="images/library.jpeg"
-              text="placeholder book text"
-              label="book genre"
-              path="/services"
-            />
             <CardItem
               src="images/library.jpeg"
               text="placeholder book text"
@@ -64,8 +56,6 @@ function BookResults() {
               label="book genre"
               path="/services"
             />
-          </ul>
-          <ul className="cards__items">
             <CardItem
               src="images/library.jpeg"
               text="placeholder book text"
@@ -80,6 +70,70 @@ function BookResults() {
             />
           </ul>
           <ul className="cards__items">
+            <CardItem
+              src="images/library.jpeg"
+              text="placeholder book text"
+              label="book genre"
+              path="/services"
+            />
+            <CardItem
+              src="images/library.jpeg"
+              text="placeholder book text"
+              label="book genre"
+              path="/services"
+            />
+            <CardItem
+              src="images/library.jpeg"
+              text="placeholder book text"
+              label="book genre"
+              path="/services"
+            />
+            <CardItem
+              src="images/library.jpeg"
+              text="placeholder book text"
+              label="book genre"
+              path="/services"
+            />
+          </ul>
+          <ul className="cards__items">
+            <CardItem
+              src="images/library.jpeg"
+              text="placeholder book text"
+              label="book genre"
+              path="/services"
+            />
+            <CardItem
+              src="images/library.jpeg"
+              text="placeholder book text"
+              label="book genre"
+              path="/services"
+            />
+            <CardItem
+              src="images/library.jpeg"
+              text="placeholder book text"
+              label="book genre"
+              path="/services"
+            />
+            <CardItem
+              src="images/library.jpeg"
+              text="placeholder book text"
+              label="book genre"
+              path="/services"
+            />
+          </ul>
+          <ul className="cards__items">
+            <CardItem
+              src="images/library.jpeg"
+              text="placeholder book text"
+              label="book genre"
+              path="/services"
+            />
+            <CardItem
+              src="images/library.jpeg"
+              text="placeholder book text"
+              label="book genre"
+              path="/services"
+            />
             <CardItem
               src="images/library.jpeg"
               text="placeholder book text"
