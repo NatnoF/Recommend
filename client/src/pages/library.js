@@ -1,9 +1,10 @@
 import React from 'react'
 import SidebarMenu from '../components/SidebarMenu';
+import Feed from '../components/Feed';
 
 function library() {
     return (
-        <div>
+        <div className="app">
             <SidebarMenu />
             <Feed />
         </div>
