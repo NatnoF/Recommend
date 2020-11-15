@@ -16,8 +16,8 @@ const SidebarMenu = () => {
                 <SidebarOption Icon={NotesIcon} text="My Reviews"/>
                 <SidebarOption Icon={NotesIcon} text="Following"/>
                 <SidebarOption Icon={NotesIcon} text="Favorite Genres"/>
-                <SidebarOption Icon={NotesIcon} text="Favorite Genres"/>
-                <SidebarOption Icon={NotesIcon} text="Favorite Genres"/>
+                <SidebarOption Icon={NotesIcon} text="Placeholder"/>
+                <SidebarOption Icon={NotesIcon} text="Placeholder"/>
 
                 <Button variant="outlined" className="sidebar__button" fullWidth>Placeholder</Button>            
                 </div>

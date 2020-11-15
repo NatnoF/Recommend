@@ -1,6 +1,5 @@
 * {
   /* box-sizing: border-box; */ /*this line of code makes the homepage nav look better but also breaks the sidebar in library, need to adjust for more specialized styling */
-
   margin: 0;
   padding: 0;
   font-family: sans-serif;
