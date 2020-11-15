@@ -1,5 +1,5 @@
 .sidebar {
-    border-right: 1px solid #12232E;
+    border-right: 1px solid #4DA8DA;
     flex: 0.3;
     min-width: 250px;
     margin-top: 20px;
@@ -8,14 +8,14 @@
 }
 
 .sidebar__logoIcon {
-    color:  #007CC7;
+    color:  #12232E;
     font-size: 30px !important;
     margin-left: 20px;
     margin-bottom: 20px;
 }
 
 .sidebar__button {
-    background-color: #007CC7 !important;
+    background-color: #12232E !important;
     border: none !important;
     color: #EEFBFB !important;
     font-weight: 900 !important;

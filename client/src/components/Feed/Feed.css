@@ -1,6 +1,6 @@
 .feed {
     flex: 0.4;
-    border-right: 1px solid #203647;
+    border-right: 1px solid #4DA8DA;
     min-width: fit-content;
     overflow-y: scroll;
 }
@@ -19,7 +19,7 @@
     top: 0;
     background-color: white;
     z-index: 100;
-    border: 1px solid #203647;
+    border: 1px solid #4DA8DA;
     padding: 15px 20px;
 }
 
