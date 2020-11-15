@@ -2,7 +2,6 @@ import React from 'react';
 import './SidebarMenu.css';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 import SidebarOption from './SidebarOption';
-import {Icon} from './SidebarMenuProperties';
 import NotesIcon from '@material-ui/icons/Notes';
 import LocationSearchingIcon from '@material-ui/icons/LocationSearching';
 import Button from '@material-ui/core/Button';
@@ -11,7 +10,6 @@ import Button from '@material-ui/core/Button';
 const SidebarMenu = () => {
     return (
             <div className="sidebar">
-                {/* <Icon to="/"> Recommend </Icon> */}
                 <MenuBookIcon className="sidebar__logoIcon" />
                 <SidebarOption active Icon={LocationSearchingIcon} text="Find"/>
                 <SidebarOption Icon={NotesIcon} text="Wishlist"/>

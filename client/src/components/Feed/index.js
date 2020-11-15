@@ -1,11 +1,12 @@
 import React from 'react'
 import './Feed.css'
+import {Icon} from '../SidebarMenu/SidebarMenuProperties';
 
 const Feed = () => {
     return (
         <div className="feed">
             <div className="feedHeader">
-                <h2>Home</h2>
+            <Icon to="/"> Recommend </Icon>
             </div>
         </div>
     )
