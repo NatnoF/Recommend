@@ -5,6 +5,7 @@ function library() {
     return (
         <div>
             <SidebarMenu />
+            <Feed />
         </div>
     )
 }
