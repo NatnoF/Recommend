@@ -1,11 +1,14 @@
 import React from 'react';
 import './SidebarMenu.css';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
-import {Link} from 'react-router-dom';
 import SidebarOption from './SidebarOption';
+import {Icon, Background} from './SidebarMenuProperties';
 
 const SidebarMenu = () => {
     return (
+        <>
+        <Background>
+        <Icon to="/">Recommend</Icon>
         <div className="sidebar">
             {/* { Brand Logo } */}
             <MenuBookIcon />
@@ -22,6 +25,8 @@ const SidebarMenu = () => {
 
             {/* { Button -> search/review? } */}
         </div>
+        </Background>
+        </>
     );
 }
 
