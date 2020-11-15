@@ -11,9 +11,8 @@ import Button from '@material-ui/core/Button';
 const SidebarMenu = () => {
     return (
             <div className="sidebar">
-                <Icon to="/">Recommend </Icon>
-                <MenuBookIcon />
-
+                {/* <Icon to="/"> Recommend </Icon> */}
+                <MenuBookIcon className="sidebar__logoIcon" />
                 <SidebarOption active Icon={LocationSearchingIcon} text="Find"/>
                 <SidebarOption Icon={NotesIcon} text="Wishlist"/>
                 <SidebarOption Icon={NotesIcon} text="My Reviews"/>
