@@ -8,6 +8,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import GroupIcon from '@material-ui/icons/Group';
 
+
 const SidebarMenu = () => {
     return (
             <div className="sidebar">
