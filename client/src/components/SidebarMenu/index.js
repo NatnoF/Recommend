@@ -13,7 +13,7 @@ const SidebarMenu = () => {
             <div className="sidebar">
                 <MenuBookIcon className="sidebar__logoIcon" />
                 <SidebarOption active Icon={SearchIcon} text="Find"/>
-                <SidebarOption Icon={FavoriteBorderIcon} text="Wishlist"/>
+                <SidebarOption Icon={FavoriteBorderIcon} text="MyBooks"/>
                 <SidebarOption Icon={GroupIcon} text="Following"/>
                 <SidebarOption Icon={NotesIcon} text="My Reviews"/>
                 <SidebarOption Icon={NotesIcon} text="Favorite Genres"/>
