@@ -4,6 +4,7 @@ import {Icon} from '../SidebarMenu/SidebarMenuProperties';
 import BookResults from '../BookResults';
 import TextField from '@material-ui/core/TextField';
 
+
 const Feed = () => {
     return (
         <div className="feed">
@@ -12,7 +13,7 @@ const Feed = () => {
             <br />
             </div>
             <div className="search">
-            <TextField id="standard-search" label="Search field" type="search" /></div>
+            <TextField id="standard-search" label="Search field" type="search"  /></div>
             <BookResults />
 
         </div>
