@@ -1,6 +1,6 @@
 .feed {
+    /* border-right: 1px solid #4DA8DA; */
     flex: 0.4;
-    border-right: 1px solid #4DA8DA;
     min-width: fit-content;
     overflow-y: scroll;
 }
@@ -15,15 +15,25 @@
 }
 
 .feedHeader {
+    /* border: 1px solid #4DA8DA; */
     position: sticky;
     top: 0;
     background-color: white;
     z-index: 100;
-    border: 1px solid #4DA8DA;
     padding: 15px 20px;
+    background: #12232E;
 }
 
 .feedHeader > h2 {
     font-size: 20px;
     font-weight: 800;
 }
+
+.search {
+    margin-left: 32px;
+    flex: 0.4s;
+    min-width: fit-content;
+    color: #EEFBFB !important;
+}
+
+
