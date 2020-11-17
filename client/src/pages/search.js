@@ -32,6 +32,11 @@ class search extends Component() {
         );
     };
 
+    handleFormSubmit = event => {
+        event.preventDefault();
+        this.getBooks();
+    };
+
     render() {
         return (
             <div className="app">
