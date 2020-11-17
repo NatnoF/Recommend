@@ -35,7 +35,7 @@ const Navbar = ({toggle}) => {
             </NavItem>
 
             <NavItem>
-              <NavPages to="/library">Library</NavPages>
+              <NavPages to="/search">Search</NavPages>
             </NavItem>
 
             <NavItem>

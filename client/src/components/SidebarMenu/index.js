@@ -8,12 +8,13 @@ import SearchIcon from '@material-ui/icons/Search';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import GroupIcon from '@material-ui/icons/Group';
 
+
 const SidebarMenu = () => {
     return (
             <div className="sidebar">
                 <MenuBookIcon className="sidebar__logoIcon" />
                 <SidebarOption active Icon={SearchIcon} text="Find"/>
-                <SidebarOption Icon={FavoriteBorderIcon} text="Wishlist"/>
+                <SidebarOption to="/saved" Icon={FavoriteBorderIcon} text="MyBooks"/>
                 <SidebarOption Icon={GroupIcon} text="Following"/>
                 <SidebarOption Icon={NotesIcon} text="My Reviews"/>
                 <SidebarOption Icon={NotesIcon} text="Favorite Genres"/>
