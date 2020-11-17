@@ -1,12 +1,12 @@
 import React from 'react'
 import SidebarMenu from '../components/SidebarMenu';
-import Feed from '../components/Feed';
+import Saved from '../components/Saved';
 
 function saved() {
     return (
         <div className="app">
             <SidebarMenu />
-            <Feed />
+            <Saved />
         </div>
     )
 }
