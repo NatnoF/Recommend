@@ -3,7 +3,7 @@
     flex: 0.4;
     min-width: fit-content;
     overflow-y: scroll;
-    height: 700px;
+    height: 95vh;
 }
 
 .feed::-webkit-scrollbar {
@@ -31,7 +31,6 @@
 }
 
 .search {
-    margin-left: 2%;
     flex: 0.4s;
     /* min-width: fit-content; */
     color: #EEFBFB !important;
