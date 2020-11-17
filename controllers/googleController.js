@@ -33,5 +33,14 @@ module.exports = {
       )
       .then(books => res.json(books))
       .catch(err => res.status(422).json(err));
+  },
+  findById: function(req, res) {
+    const { query: params } = req;
+    axios
+      .get("https://www.googleapis.com/books/v1/volumes/", {
+        params
+      })
+      .then(book => res.json(book))
+      .catch(err => res.status(422).json(err));
   }
 };
