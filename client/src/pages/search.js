@@ -5,8 +5,9 @@ import Feed from '../components/Feed';
 class search extends Component() {
     state = {
         books: [],
-        q: " "
-    }
+        q: " ",
+        message: "Search For A Book To Begin!"
+    };
 
     handleInputChange = event => {
         const { name, value } = event.target;
