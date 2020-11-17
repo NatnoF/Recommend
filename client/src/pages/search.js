@@ -3,7 +3,7 @@ import SidebarMenu from '../components/SidebarMenu';
 import Feed from '../components/Feed';
 import API from "../utils/API";
 
-class search extends Component() {
+class search extends Component {
     state = {
         books: [],
         q: " ",
@@ -19,7 +19,7 @@ class search extends Component() {
 
     getBooks = () => {
         API.getBooks(this.state.q)
-        .then(res =>
+        .then(res => 
             this.setState({
                 books: res.data
             })
@@ -56,7 +56,7 @@ class search extends Component() {
         return (
             <div className="app">
                 <SidebarMenu />
-                <Feed />
+                <Feed handleInputChange={this.handleInputChange} handleFormSubmit={this.handleFormSubmit} />
             </div>
         )
     }
