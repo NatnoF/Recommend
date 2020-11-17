@@ -31,7 +31,7 @@ const Navbar = ({toggle}) => {
             </NavItem>
 
             <NavItem>
-              <NavLinks to="placeholder">Placeholder</NavLinks>
+              <NavPages to="/saved">MyBooks</NavPages>
             </NavItem>
 
             <NavItem>
