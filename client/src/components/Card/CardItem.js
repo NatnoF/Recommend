@@ -5,7 +5,7 @@ function CardItem({ title, image, authors, id }) {
     return (
         <>
             <li className="cards__item">
-                <Link className="cards__item__link" to={id}>
+                <Link className="cards__item__link" to={`/book/${id}`}>
 
                     <figure className="cards__item__pic-wrap" data-category={title}>
                         <img src={image} alt={title} className="cards__item__img"/>
