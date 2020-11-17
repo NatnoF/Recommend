@@ -2,9 +2,8 @@ import React from 'react'
 import SidebarMenu from '../components/SidebarMenu';
 import Feed from '../components/Feed';
 
-function library() {
+function saved() {
     return (
-
         <div className="app">
             <SidebarMenu />
             <Feed />
@@ -12,4 +11,4 @@ function library() {
     )
 }
 
-export default library;
+export default saved;

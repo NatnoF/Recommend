@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './pages';
 import SignInPage from './pages/signin';
 import SignUpPage from './pages/signup';
-import SidebarMenu from './pages/library';
+import SidebarMenu from './pages/search';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         <Route path="/" component={Home} exact />
         <Route path="/signin" component={SignInPage} exact />
         <Route path="/signup" component={SignUpPage} exact />
-        <Route path="/library" component={SidebarMenu} exact />
+        <Route path="/search" component={SidebarMenu} exact />
       </Switch>
     </Router>
   );
