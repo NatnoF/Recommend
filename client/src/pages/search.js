@@ -37,6 +37,21 @@ class search extends Component() {
         this.getBooks();
     };
 
+    handleBookSave = id => {
+        const book = this.state.books.find(book => book.id === id);
+    
+        API.saveBook({
+          googleId: book.id,
+          title: book.volumeInfo.title,
+          subtitle: book.volumeInfo.subtitle,
+          link: book.volumeInfo.infoLink,
+          authors: book.volumeInfo.authors,
+          description: book.volumeInfo.description,
+          image: book.volumeInfo.imageLinks.thumbnail
+          // userId: this.userId    Will actually get about doing this when users and authentication is added
+        }).then(() => this.getBooks());
+    };
+
     render() {
         return (
             <div className="app">
