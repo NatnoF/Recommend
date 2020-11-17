@@ -4,7 +4,7 @@ import {Icon} from '../SidebarMenu/SidebarMenuProperties';
 import BookResults from '../BookResults';
 import TextField from '@material-ui/core/TextField';
 
-const Feed = ({ handleInputChange, handleFormSubmit }) => {
+const Feed = ({ handleInputChange, handleFormSubmit, q }) => {
     return (
         <div className="feed">
             <div className="feedHeader">
@@ -12,7 +12,7 @@ const Feed = ({ handleInputChange, handleFormSubmit }) => {
             <br />
             </div>
             <div className="search">
-                <TextField id="standard-search" label="Search field" type="search" onChange={handleInputChange} />
+                <TextField id="standard-search" name="q" value={q} label="Search field" type="text" onChange={handleInputChange} />
                 <button type="submit" className="btn btn-primary float-right" onClick={handleFormSubmit}>
                     Search
                 </button>
