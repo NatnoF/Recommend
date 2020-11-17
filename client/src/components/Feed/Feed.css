@@ -3,6 +3,7 @@
     flex: 0.4;
     min-width: fit-content;
     overflow-y: scroll;
+    height: 700px;
 }
 
 .feed::-webkit-scrollbar {
@@ -32,7 +33,7 @@
 .search {
     margin-left: 2%;
     flex: 0.4s;
-    min-width: fit-content;
+    /* min-width: fit-content; */
     color: #EEFBFB !important;
 }
 
@@ -67,6 +68,10 @@
 
 .btn-primary {
     color: #fff;
-    background-color: #1f98f4;
-    border-color: #1f98f4;
+    background-color: #12232E;
+    border-color: #12232E;
+}
+
+.grid {
+    flex-grow: 1,
 }

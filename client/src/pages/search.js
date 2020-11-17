@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import SidebarMenu from '../components/SidebarMenu';
 import Feed from '../components/Feed';
 import API from "../utils/API";
+import Grid from '@material-ui/core/Grid';
+
 
 class search extends Component {
     state = {
@@ -53,11 +55,18 @@ class search extends Component {
     };
 
     render() {
+
         return (
-            <div className="app">
-                <SidebarMenu />
-                <Feed handleInputChange={this.handleInputChange} handleFormSubmit={this.handleFormSubmit} />
-            </div>
+            <div className="grid">
+                <Grid container spacing={3}>
+                    <Grid item xs={3}>
+                    <SidebarMenu />
+                    </Grid>
+                    <Grid item xs={9}>
+                    <Feed handleInputChange={this.handleInputChange} handleFormSubmit={this.handleFormSubmit} />
+                    </Grid>
+                </Grid>
+            </div >
         )
     }
 }
