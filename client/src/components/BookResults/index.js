@@ -2,156 +2,112 @@ import React from "react";
 // import "./BookResults.css";
 import CardItem from "../Card/CardItem";
 import "../Card/Cards.css";
+import Grid from "@material-ui/core/Grid";
 
 function BookResults() {
   return (
-    <div className="bookresults">
       <div className="cards">
         <div className="cards__container">
-          {/* <div className="cards__wrapper"> */}
-          <ul className="cards__items">
-            <CardItem
-              src="images/library.jpeg"
-              text="placeholder book text"
-              label="book genre"
-              path="/services"
-            />
-            <CardItem
-              src="images/library.jpeg"
-              text="placeholder book text"
-              label="book genre"
-              path="/services"
-            />
-          </ul>
-          <ul className="cards__items">
-            <CardItem
-              src="images/library.jpeg"
-              text="placeholder book text"
-              label="book genre"
-              path="/services"
-            />
-            <CardItem
-              src="images/library.jpeg"
-              text="placeholder book text"
-              label="book genre"
-              path="/services"
-            />
-            <CardItem
-              src="images/library.jpeg"
-              text="placeholder book text"
-              label="book genre"
-              path="/services"
-            />
-          </ul>
-          <ul className="cards__items">
-            <CardItem
-              src="images/library.jpeg"
-              text="placeholder book text"
-              label="book genre"
-              path="/services"
-            />
-            <CardItem
-              src="images/library.jpeg"
-              text="placeholder book text"
-              label="book genre"
-              path="/services"
-            />
-            <CardItem
-              src="images/library.jpeg"
-              text="placeholder book text"
-              label="book genre"
-              path="/services"
-            />
-            <CardItem
-              src="images/library.jpeg"
-              text="placeholder book text"
-              label="book genre"
-              path="/services"
-            />
-          </ul>
-          <ul className="cards__items">
-            <CardItem
-              src="images/library.jpeg"
-              text="placeholder book text"
-              label="book genre"
-              path="/services"
-            />
-            <CardItem
-              src="images/library.jpeg"
-              text="placeholder book text"
-              label="book genre"
-              path="/services"
-            />
-            <CardItem
-              src="images/library.jpeg"
-              text="placeholder book text"
-              label="book genre"
-              path="/services"
-            />
-            <CardItem
-              src="images/library.jpeg"
-              text="placeholder book text"
-              label="book genre"
-              path="/services"
-            />
-          </ul>
-          <ul className="cards__items">
-            <CardItem
-              src="images/library.jpeg"
-              text="placeholder book text"
-              label="book genre"
-              path="/services"
-            />
-            <CardItem
-              src="images/library.jpeg"
-              text="placeholder book text"
-              label="book genre"
-              path="/services"
-            />
-            <CardItem
-              src="images/library.jpeg"
-              text="placeholder book text"
-              label="book genre"
-              path="/services"
-            />
-            <CardItem
-              src="images/library.jpeg"
-              text="placeholder book text"
-              label="book genre"
-              path="/services"
-            />
-          </ul>
-          <ul className="cards__items">
-            <CardItem
-              src="images/library.jpeg"
-              text="placeholder book text"
-              label="book genre"
-              path="/services"
-            />
-            <CardItem
-              src="images/library.jpeg"
-              text="placeholder book text"
-              label="book genre"
-              path="/services"
-            />
-            <CardItem
-              src="images/library.jpeg"
-              text="placeholder book text"
-              label="book genre"
-              path="/services"
-            />
-            <CardItem
-              src="images/library.jpeg"
-              text="placeholder book text"
-              label="book genre"
-              path="/services"
-            />
-          </ul>
-
-          {/* </div> */}
+          <Grid container spacing={3}>
+            <Grid item xs={12} sm={6} md={4} lg={3}>
+              <CardItem
+                src="images/library.jpeg"
+                text="placeholder book text"
+                label="book genre"
+                path="/services"
+              />
+            </Grid>
+            <Grid item xs={12} sm={6} md={4} lg={3}>
+              <CardItem
+                src="images/library.jpeg"
+                text="placeholder book text"
+                label="book genre"
+                path="/services"
+              />
+            </Grid>
+            <Grid item xs={12} sm={6} md={4} lg={3}>
+              <CardItem
+                src="images/library.jpeg"
+                text="placeholder book text"
+                label="book genre"
+                path="/services"
+              />
+            </Grid>
+            <Grid item xs={12} sm={6} md={4} lg={3}>
+              <CardItem
+                src="images/library.jpeg"
+                text="placeholder book text"
+                label="book genre"
+                path="/services"
+              />
+            </Grid>
+            <Grid item xs={12} sm={6} md={4} lg={3}>
+              <CardItem
+                src="images/library.jpeg"
+                text="placeholder book text"
+                label="book genre"
+                path="/services"
+              />
+            </Grid>
+            <Grid item xs={12} sm={6} md={4} lg={3}>
+              <CardItem
+                src="images/library.jpeg"
+                text="placeholder book text"
+                label="book genre"
+                path="/services"
+              />
+            </Grid>
+            <Grid item xs={12} sm={6} md={4} lg={3}>
+              <CardItem
+                src="images/library.jpeg"
+                text="placeholder book text"
+                label="book genre"
+                path="/services"
+              />
+            </Grid>
+            <Grid item xs={12} sm={6} md={4} lg={3}>
+              <CardItem
+                src="images/library.jpeg"
+                text="placeholder book text"
+                label="book genre"
+                path="/services"
+              />
+            </Grid>
+            <Grid item xs={12} sm={6} md={4} lg={3}>
+              <CardItem
+                src="images/library.jpeg"
+                text="placeholder book text"
+                label="book genre"
+                path="/services"
+              />
+            </Grid>
+            <Grid item xs={12} sm={6} md={4} lg={3}>
+              <CardItem
+                src="images/library.jpeg"
+                text="placeholder book text"
+                label="book genre"
+                path="/services"
+              />
+            </Grid>
+            <Grid item xs={12} sm={6} md={4} lg={3}>
+              <CardItem
+                src="images/library.jpeg"
+                text="placeholder book text"
+                label="book genre"
+                path="/services"
+              />
+            </Grid>
+            <Grid item xs={12} sm={6} md={4} lg={3}>
+              <CardItem
+                src="images/library.jpeg"
+                text="placeholder book text"
+                label="book genre"
+                path="/services"
+              />
+            </Grid>
+          </Grid>
         </div>
       </div>
-    </div>
   );
 }
 
