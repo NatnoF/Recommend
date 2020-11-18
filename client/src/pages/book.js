@@ -54,15 +54,16 @@ const Book = () => {
   return (
     <div className="background">
       {book.volumeInfo ? (
-        <div className="">
+          <>
+
           <Grid container justify="center">
-            <Grid className="flex-wrap-reverse" container spacing={3}>
-              <Grid item sm={8} justify="center">
+            <Grid className="flex-wrap-reverse" container spacing={10}>
+              <Grid item sm={10} justify="center">
                 <Paper className="homeLink">
                   <Icon to="/search">Recommend</Icon>
                 </Paper>
               </Grid>
-              <Grid item sm={4}>
+              <Grid item sm={2}>
                 <div className="btn-container">
                   <a
                     className="btn"
@@ -82,6 +83,7 @@ const Book = () => {
               </Grid>
             </Grid>
 
+            <div className="wrapper">
             <Grid container spacing={3}>
               <Grid item sm={4}>
                 <h2 className="font-italic header">{book.volumeInfo.title}</h2>
@@ -112,8 +114,10 @@ const Book = () => {
                 ></p>
               </Grid>
             </Grid>
+            </div>
           </Grid>
-        </div>
+        
+        </>
       ) : (
         <h1>Loading...</h1>
       )}
