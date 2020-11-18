@@ -6,8 +6,6 @@ import NotesIcon from '@material-ui/icons/Notes';
 import SearchIcon from '@material-ui/icons/Search';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import GroupIcon from '@material-ui/icons/Group';
-import '../reset.css';
-
 
 const SidebarMenu = () => {
     return (
