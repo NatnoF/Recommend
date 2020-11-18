@@ -2,6 +2,25 @@ import React, { useState } from "react";
 import API from "../utils/API";
 import Grid from "@material-ui/core/Grid";
 import "./css/book.css";
+import { Icon } from "../components/SidebarMenu/SidebarMenuProperties";
+
+import { makeStyles } from "@material-ui/core/styles";
+
+import Typography from "@material-ui/core/Typography/";
+import Container from "@material-ui/core/Container";
+
+import Paper from "@material-ui/core/Paper";
+
+const useStyles = makeStyles({
+  root: {
+    background: "linear-gradient(108deg, #12232E, #007CC7)",
+    border: 0,
+    marginBottom: 15,
+    borderRadius: 15,
+    color: "white",
+    padding: "5px 30px",
+  },
+});
 
 const Book = () => {
   const [book, setBook] = useState({});
@@ -35,57 +54,66 @@ const Book = () => {
   return (
     <div className="background">
       {book.volumeInfo ? (
-        <Grid item xs={12} sm={8} md={12}>
-          <Grid className="flex-wrap-reverse" container spacing={3}>
-            <Grid item sm={8}>
-              <h2 className="font-italic">{book.volumeInfo.title}</h2>
-              {book.volumeInfo.subtitle && (
-                <h5 className="font-italic">{book.volumeInfo.subtitle}</h5>
-              )}
+        <div className="">
+          <Grid container justify="center">
+            <Grid className="flex-wrap-reverse" container spacing={3}>
+              <Grid item sm={8} justify="center">
+                <Paper className="homeLink">
+                  <Icon to="/search">Recommend</Icon>
+                </Paper>
+              </Grid>
+              <Grid item sm={4}>
+                <div className="btn-container">
+                  <a
+                    className="btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={book.volumeInfo.infoLink}
+                  >
+                    View
+                  </a>
+                  <button
+                    onClick={() => handleBookSave()}
+                    className="btn btn-primary"
+                  >
+                    Save
+                  </button>
+                </div>
+              </Grid>
             </Grid>
-            <Grid item sm={4}>
-              <div className="btn-container">
-                <a
-                  className="btn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={book.volumeInfo.infoLink}
-                >
-                  View
-                </a>
-                <button
-                  onClick={() => handleBookSave()}
-                  className="btn btn-primary"
-                >
-                  Save
-                </button>
-              </div>
+
+            <Grid container spacing={3}>
+              <Grid item sm={4}>
+                <h2 className="font-italic header">{book.volumeInfo.title}</h2>
+                {book.volumeInfo.subtitle && (
+                  <h3 className="font-italic header">
+                    {book.volumeInfo.subtitle}
+                  </h3>
+                )}
+                <p className="font-italic small author">
+                  <em>Written by {book.volumeInfo.authors.join(", ")}</em>
+                </p>
+              </Grid>
+              <Grid item sm={4}>
+                <img
+                  className="img-thumbnail img-fluid w-100"
+                  src={book.volumeInfo.imageLinks.thumbnail}
+                  alt={book.volumeInfo.title}
+                />
+              </Grid>
+              <Grid item sm={4}></Grid>
+            </Grid>
+            <Grid container spacing={3}>
+              <Grid item sm={12}>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: book.volumeInfo.description,
+                  }}
+                ></p>
+              </Grid>
             </Grid>
           </Grid>
-          <Grid container spacing={3}>
-            <Grid item md={6}>
-              <p className="font-italic small">
-                <em>Written by {book.volumeInfo.authors.join(", ")}</em>
-              </p>
-            </Grid>
-          </Grid>
-          <Grid container spacing={3} direction="column">
-            <Grid item xs={12} sm={4} md={2}>
-              <img
-                className="img-thumbnail img-fluid w-100"
-                src={book.volumeInfo.imageLinks.thumbnail}
-                alt={book.volumeInfo.title}
-              />
-            </Grid>
-            <Grid item xs={12} sm={8} md={10} lg={10}>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: book.volumeInfo.description,
-                }}
-              ></p>
-            </Grid>
-          </Grid>
-        </Grid>
+        </div>
       ) : (
         <h1>Loading...</h1>
       )}
