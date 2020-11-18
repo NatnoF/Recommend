@@ -1,5 +1,4 @@
 import React from "react";
-// import "./BookResults.css";
 import CardItem from "../Card/CardItem";
 import "../Card/Cards.css";
 import Grid from "@material-ui/core/Grid";

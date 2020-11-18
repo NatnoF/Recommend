@@ -31,3 +31,12 @@
   background-color: #12232E;
   border-color: #12232E;
 }
+
+.background {
+  background: #EEEEEE
+  /* linear-gradient(
+        108deg,
+        rgba(32, 54, 71, 1) 0%,
+        rgba(77, 168, 218, 1) 100%
+    ); */
+}
