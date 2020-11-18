@@ -4,7 +4,7 @@ import {Icon} from '../SidebarMenu/SidebarMenuProperties';
 import BookResults from '../BookResults';
 import TextField from '@material-ui/core/TextField';
 
-const Feed = ({ handleInputChange, handleFormSubmit, q }) => {
+const Feed = ({ handleInputChange, handleFormSubmit, q, books }) => {
     return (
         <div className="feed">
             <div className="feedHeader">
@@ -17,7 +17,7 @@ const Feed = ({ handleInputChange, handleFormSubmit, q }) => {
                     Search
                 </button>
             </div>
-            <BookResults />
+            <BookResults books={books}/>
 
         </div>
     )

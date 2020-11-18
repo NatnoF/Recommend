@@ -6,4 +6,8 @@ router
   .route("/")
   .get(googleController.findAll);
 
+router
+  .route("/:id")
+  .get(googleController.findById);
+  
 module.exports = router;

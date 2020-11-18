@@ -50,7 +50,6 @@ class search extends Component {
           authors: book.volumeInfo.authors,
           description: book.volumeInfo.description,
           image: book.volumeInfo.imageLinks.thumbnail,
-          genre: book.volumeInfo.categories[0]
           // userId: this.userId    Will actually get about doing this when users and authentication is added
         }).then(() => this.getBooks());
     };
@@ -64,7 +63,7 @@ class search extends Component {
                     <SidebarMenu />
                     </Grid>
                     <Grid item xs={9}>
-                    <Feed handleInputChange={this.handleInputChange} handleFormSubmit={this.handleFormSubmit} q={this.state.q} />
+                    <Feed handleInputChange={this.handleInputChange} handleFormSubmit={this.handleFormSubmit} q={this.state.q} books={this.state.books} />
                     </Grid>
                 </Grid>
             </div >
