@@ -35,12 +35,10 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
-    const { query: params } = req;
+    const query= "https://www.googleapis.com/books/v1/volumes/" + req.params.id
     axios
-      .get("https://www.googleapis.com/books/v1/volumes/", {
-        params
-      })
-      .then(book => res.json(book))
+      .get(query)
+      .then(book => res.json(book.data))
       .catch(err => res.status(422).json(err));
   }
 };
