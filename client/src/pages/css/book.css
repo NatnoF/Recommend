@@ -40,3 +40,28 @@
         rgba(77, 168, 218, 1) 100%
     ); */
 }
+
+img {
+  padding:20px;
+}
+
+.header {
+  padding: 10px;
+}
+
+.author {
+  padding: 10px; 
+}
+
+.paper {
+  padding-top: 10px;
+}
+
+.homeLink {
+  background-color: #12232E !important;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 940px;
+}
