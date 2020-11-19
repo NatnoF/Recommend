@@ -50,5 +50,8 @@ export default {
   },
   updateComment: function(id, commentData) {
     return axios.put("/api/comments/" + id, commentData);
+  },
+  deleteComment: function(id) {
+    return axios.delete("/api/comments/" + id);
   }
 };
