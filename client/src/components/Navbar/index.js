@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useEffect,useContext } from 'react'
 import { useHistory } from 'react-router-dom';
 import Auth from "../../utils/Auth";
 import { UserContext } from "../../utils/UserContext";
@@ -23,6 +23,32 @@ const Navbar = ({toggle}) => {
   // eslint-disable-next-line no-unused-vars
   const [user, dispatch] = useContext(UserContext);
   const history = useHistory();
+  
+  useEffect(() => {
+    if (Auth.isAuthenticated)
+    {
+      fetch('api/users/user', {
+        credentials: 'include'
+      })
+        .then((res) => {
+          console.log(`response to authenticate ${res}`);
+          return res.json(res)
+  
+        })
+        .then(data => {
+          console.log(data);
+          dispatch({
+            type: "GET_USER",
+            payload: data
+          })
+  
+        })
+        .catch((err) => {
+          console.log('Error fetching authorized user.');
+        });
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   
   return (
     <>
@@ -51,7 +77,7 @@ const Navbar = ({toggle}) => {
             {Auth.isAuthenticated ? (
               <Button variant="contained" color="secondary"
                 onClick={() => {
-                  Auth.signout(() => history.push('/login'))
+                  Auth.signout(() => history.push('/signin'))
                   dispatch({
                     type: "GET_USER",
                     payload: {}
@@ -69,7 +95,7 @@ const Navbar = ({toggle}) => {
 
           {Auth.isAuthenticated ? (
             <NavBtn>
-              <NavBtnLink to="/">Signed In</NavBtnLink>
+              <NavBtnLink to="/">{user.username}</NavBtnLink>
             </NavBtn>
           ) : (
             <NavBtn>

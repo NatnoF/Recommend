@@ -18,6 +18,6 @@ router.use("/reviews", reviewRoutes);
 router.use("/comments", commentRoutes);
 
 // User Routes
-router.use("/users", userRoutes)
+router.use("/users", userRoutes);
 
 module.exports = router;
