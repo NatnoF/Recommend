@@ -4,11 +4,16 @@ module.exports = {
   findAll: function(req, res) {
     db.Review.find({ bookId: req.params.bookId })
       .then(dbReview => res.json(dbReview))
-      .catch(err => res.status(422).json(err))
+      .catch(err => res.status(422).json(err));
   },
-  create: function (req, res) {
+  create: function(req, res) {
     db.Review.create(req.body)
       .then(dbReview => res.json(dbReview))
-      .catch(err => res.status(422).json(err))
+      .catch(err => res.status(422).json(err));
+  },
+  update: function(req, res) {
+    db.Review.findOneAndUpdate({ id: req.params.id }, req.body)
+      .then(dbReview => res.json(dbReview))
+      .catch(err => res.status(422).json(err));
   }
 }
