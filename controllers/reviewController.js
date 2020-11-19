@@ -6,6 +6,11 @@ module.exports = {
       .then(dbReview => res.json(dbReview))
       .catch(err => res.status(422).json(err));
   },
+  findById: function(req, res) {
+    db.Review.find({ userId: req.params.userId })
+      .then(dbReview => res.json(dbReview))
+      .catch(err => res.status(422).json(err));
+  },
   create: function(req, res) {
     db.Review.create(req.body)
       .then(dbReview => res.json(dbReview))
