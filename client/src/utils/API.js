@@ -29,5 +29,8 @@ export default {
   },
   saveReview: function(reviewData) {
     return axios.post("/api/reviews", reviewData);
+  },
+  updateReview: function(id, reviewData) {
+    return axios.put("/api/reviews" + id, reviewData);
   }
 };
