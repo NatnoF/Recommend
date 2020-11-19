@@ -27,4 +27,4 @@ module.exports = {
       .then(dbReview => res.json(dbReview))
       .catch(err => res.status(422).json(err));
   }
-}
+};

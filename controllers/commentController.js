@@ -22,4 +22,4 @@ module.exports = {
       .then(dbComment => res.json(dbComment))
       .catch(err => res.status(422).json(err));
   }
-}
+};
