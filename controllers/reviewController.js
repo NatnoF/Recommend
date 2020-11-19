@@ -15,5 +15,11 @@ module.exports = {
     db.Review.findOneAndUpdate({ id: req.params.id }, req.body)
       .then(dbReview => res.json(dbReview))
       .catch(err => res.status(422).json(err));
+  },
+  remove: function(req, res) {
+    db.Review.findById(req.params.id)
+      .then(dbReview => dbReview.remove())
+      .then(dbReview => res.json(dbReview))
+      .catch(err => res.status(422).json(err));
   }
 }
