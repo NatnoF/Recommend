@@ -20,5 +20,8 @@ export default {
   },
   getBook: function(id) {
     return axios.get("/api/google/" + id);
+  },
+  getReviews: function(id) {
+    return axios.get("/api/reviews", id);
   }
 };
