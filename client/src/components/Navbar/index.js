@@ -53,8 +53,8 @@ const Navbar = ({toggle}) => {
   return (
     <>
       <Nav>
-        <NavbarContainer>
-          <NavLogo to="/">Recommend</NavLogo>
+        <NavbarContainer className="nav">
+          <NavLogo to="/"><h1>Recommend</h1></NavLogo>
 
           <MobileIcon onClick={toggle}>
             <FaBars />

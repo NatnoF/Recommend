@@ -89,7 +89,7 @@ export const NavLinks = styled(LinkScroll)`
 
 
 export const NavPages = styled(LinkRouter)`
-    color: #EEFBFB;
+color: #EEFBFB;
     display: flex;
     align-items: center;
     text-decoration: none;
