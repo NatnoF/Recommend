@@ -23,5 +23,8 @@ export default {
   },
   getReviews: function(id) {
     return axios.get("/api/reviews", id);
+  },
+  getUserReviews: function(id) {
+    return axios.get("/api/reviews" + id);
   }
 };
