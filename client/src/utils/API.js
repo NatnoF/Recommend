@@ -32,5 +32,8 @@ export default {
   },
   updateReview: function(id, reviewData) {
     return axios.put("/api/reviews" + id, reviewData);
+  },
+  deleteReview: function(id) {
+    return axios.delete("/api/reviews" + id);
   }
 };
