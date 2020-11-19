@@ -44,5 +44,8 @@ export default {
   },
   getComments: function(id) {
     return axios.get("/api/comments/" + id);
+  },
+  saveComment: function(commentData) {
+    return axios.post("/api/comments", commentData);
   }
 };
