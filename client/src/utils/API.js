@@ -42,15 +42,19 @@ export default {
   deleteReview: function(id) {
     return axios.delete("/api/reviews/" + id);
   },
+  // Gets all comments for a specific review
   getComments: function(id) {
     return axios.get("/api/comments/" + id);
   },
+  // Creates and saves a comment to the database
   saveComment: function(commentData) {
     return axios.post("/api/comments", commentData);
   },
+  // Let's you update a specific comment
   updateComment: function(id, commentData) {
     return axios.put("/api/comments/" + id, commentData);
   },
+  // Removes a specific comment from the database
   deleteComment: function(id) {
     return axios.delete("/api/comments/" + id);
   }
