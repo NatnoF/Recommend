@@ -28,7 +28,7 @@ export default {
   },
   // Gets all reviews by a specifc user from the database
   getUserReviews: function(id) {
-    return axios.get("/api/reviews" + id);
+    return axios.get("/api/reviews/" + id);
   },
   // Creates and saves a review to the database
   saveReview: function(reviewData) {
@@ -36,10 +36,13 @@ export default {
   },
   // Let's you update a specific review
   updateReview: function(id, reviewData) {
-    return axios.put("/api/reviews" + id, reviewData);
+    return axios.put("/api/reviews/" + id, reviewData);
   },
   // Removes a specific review from the database
   deleteReview: function(id) {
-    return axios.delete("/api/reviews" + id);
+    return axios.delete("/api/reviews/" + id);
+  },
+  getComments: function(id) {
+    return axios.get("/api/comments/" + id);
   }
 };
