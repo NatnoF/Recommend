@@ -17,7 +17,7 @@ const Navbar = ({toggle}) => {
   return (
     <>
       <Nav>
-        <NavbarContainer>
+        <NavbarContainer className="nav">
           <NavLogo to="/">Recommend</NavLogo>
 
           <MobileIcon onClick={toggle}>
