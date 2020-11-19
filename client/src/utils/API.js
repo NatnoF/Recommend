@@ -18,7 +18,44 @@ export default {
   saveBook: function(bookData) {
     return axios.post("/api/books", bookData);
   },
+  // Gets a book's info from the google books API from it's id
   getBook: function(id) {
     return axios.get("/api/google/" + id);
+  },
+  // Gets all reviews for a certain book from the database
+  getReviews: function(id) {
+    return axios.get("/api/reviews", id);
+  },
+  // Gets all reviews by a specifc user from the database
+  getUserReviews: function(id) {
+    return axios.get("/api/reviews/" + id);
+  },
+  // Creates and saves a review to the database
+  saveReview: function(reviewData) {
+    return axios.post("/api/reviews", reviewData);
+  },
+  // Let's you update a specific review
+  updateReview: function(id, reviewData) {
+    return axios.put("/api/reviews/" + id, reviewData);
+  },
+  // Removes a specific review from the database
+  deleteReview: function(id) {
+    return axios.delete("/api/reviews/" + id);
+  },
+  // Gets all comments for a specific review
+  getComments: function(id) {
+    return axios.get("/api/comments/" + id);
+  },
+  // Creates and saves a comment to the database
+  saveComment: function(commentData) {
+    return axios.post("/api/comments", commentData);
+  },
+  // Let's you update a specific comment
+  updateComment: function(id, commentData) {
+    return axios.put("/api/comments/" + id, commentData);
+  },
+  // Removes a specific comment from the database
+  deleteComment: function(id) {
+    return axios.delete("/api/comments/" + id);
   }
 };
