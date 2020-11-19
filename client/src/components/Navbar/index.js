@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useEffect,useContext } from 'react'
+import { useHistory } from 'react-router-dom';
+import Auth from "../../utils/Auth";
+import { UserContext } from "../../utils/UserContext";
 import {FaBars} from 'react-icons/fa';
 import {
   Nav,
@@ -12,8 +15,41 @@ import {
   NavBtnLink,
   NavPages
 } from "./NavbarProperties";
+import Button from '@material-ui/core/Button';
 
 const Navbar = ({toggle}) => {
+  console.log("NAV", Auth.isAuthenticated);
+
+  // eslint-disable-next-line no-unused-vars
+  const [user, dispatch] = useContext(UserContext);
+  const history = useHistory();
+  
+  useEffect(() => {
+    if (Auth.isAuthenticated)
+    {
+      fetch('api/users/user', {
+        credentials: 'include'
+      })
+        .then((res) => {
+          console.log(`response to authenticate ${res}`);
+          return res.json(res)
+  
+        })
+        .then(data => {
+          console.log(data);
+          dispatch({
+            type: "GET_USER",
+            payload: data
+          })
+  
+        })
+        .catch((err) => {
+          console.log('Error fetching authorized user.');
+        });
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  
   return (
     <>
       <Nav>
@@ -38,15 +74,34 @@ const Navbar = ({toggle}) => {
               <NavPages to="/search">Search</NavPages>
             </NavItem>
 
-            <NavItem>
-              <NavPages to="/signup">Sign Up</NavPages>
-            </NavItem>
+            {Auth.isAuthenticated ? (
+              <Button variant="contained" color="secondary"
+                onClick={() => {
+                  Auth.signout(() => history.push('/signin'))
+                  dispatch({
+                    type: "GET_USER",
+                    payload: {}
+                  })
+                }}>
+                Logout
+              </Button>
+            ) : (
+              <NavBtn>
+                <NavBtnLink to="/signup">Sign Up</NavBtnLink>
+              </NavBtn>
+            )}
 
           </NavMenu>
 
-          <NavBtn>
+          {Auth.isAuthenticated ? (
+            <NavBtn>
+              <NavBtnLink to="/">{user.username}</NavBtnLink>
+            </NavBtn>
+          ) : (
+            <NavBtn>
               <NavBtnLink to="/signin">Sign In</NavBtnLink>
-          </NavBtn>
+            </NavBtn>
+          )}
 
         </NavbarContainer>
       </Nav>

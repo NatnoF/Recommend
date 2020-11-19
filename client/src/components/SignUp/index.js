@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import {
     Container,
     FormWrap,
@@ -12,19 +12,33 @@ import {
 } from './SignUpProperties';
 
 
-const SignUp = () => {
+const SignUp = ({ onRegister }) => {
+    // refs
+	const formRef = useRef();
+	const userNameRef = useRef();
+    const passwordRef = useRef();
+    
     return (
         <>
             <Container>
                 <FormWrap>
                     <Icon to="/">Recommend</Icon>
                     <FormContent>
-                        <Form action="#">
+                        <Form action="#"
+                            ref={formRef}
+                            onSubmit={(e) => {
+                                e.preventDefault();
+                                return onRegister({
+                                    username: userNameRef.current.value,
+                                    password: passwordRef.current.value
+                                });
+                            }}
+                        >
                             <FormH1>Create your account</FormH1>
-                            <FormLabel htmlFor="for">Your Email</FormLabel>
-                            <FormInput type="email" required />
+                            <FormLabel htmlFor="for">Your Username</FormLabel>
+                            <FormInput ref={userNameRef} type="text" name="username" required />
                             <FormLabel htmlFor="for">Your Password</FormLabel>
-                            <FormInput type="password" required />
+                            <FormInput ref={passwordRef} type="password" name="password" required />
                             <FormButton type="submit">Finish</FormButton>
                         </Form>
                     </FormContent>
