@@ -47,5 +47,8 @@ export default {
   },
   saveComment: function(commentData) {
     return axios.post("/api/comments", commentData);
+  },
+  updateComment: function(id, commentData) {
+    return axios.put("/api/comments/" + id, commentData);
   }
 };
