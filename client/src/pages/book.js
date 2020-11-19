@@ -5,10 +5,6 @@ import "./css/book.css";
 import { Icon } from "../components/SidebarMenu/SidebarMenuProperties";
 
 import { makeStyles } from "@material-ui/core/styles";
-
-import Typography from "@material-ui/core/Typography/";
-import Container from "@material-ui/core/Container";
-
 import Paper from "@material-ui/core/Paper";
 
 const useStyles = makeStyles({
@@ -54,8 +50,7 @@ const Book = () => {
   return (
     <div className="background">
       {book.volumeInfo ? (
-          <>
-
+        <>
           <Grid container justify="center">
             <Grid className="flex-wrap-reverse" container spacing={10}>
               <Grid item sm={10} justify="center">
@@ -84,45 +79,54 @@ const Book = () => {
             </Grid>
 
             <div className="wrapper">
-            <Grid container spacing={3}>
-              <Grid item sm={4}>
-                <h2 className="font-italic header">{book.volumeInfo.title}</h2>
-                {book.volumeInfo.subtitle && (
-                  <h3 className="font-italic header">
-                    {book.volumeInfo.subtitle}
-                  </h3>
-                )}
-                <p className="font-italic small author">
-                  <em>Written by {book.volumeInfo.authors.join(", ")}</em>
-                </p>
+              <Grid container spacing={3}>
+                <Grid item sm={4}>
+                  <h2 className="font-italic header">
+                    {book.volumeInfo.title}
+                  </h2>
+                  {book.volumeInfo.subtitle && (
+                    <h3 className="font-italic header">
+                      {book.volumeInfo.subtitle}
+                    </h3>
+                  )}
+                  <p className="font-italic small author">
+                    <em>Written by {book.volumeInfo.authors.join(", ")}</em>
+                  </p>
+                </Grid>
+                <Grid item sm={4}>
+                  <img
+                    className="img-thumbnail img-fluid w-100"
+                    src={book.volumeInfo.imageLinks.thumbnail}
+                    alt={book.volumeInfo.title}
+                  />
+                </Grid>
+                <Grid item sm={4}></Grid>
               </Grid>
-              <Grid item sm={4}>
-                <img
-                  className="img-thumbnail img-fluid w-100"
-                  src={book.volumeInfo.imageLinks.thumbnail}
-                  alt={book.volumeInfo.title}
-                />
+              <Grid container spacing={3}>
+                <Grid item sm={12}>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: book.volumeInfo.description,
+                    }}
+                  ></p>
+                </Grid>
               </Grid>
-              <Grid item sm={4}></Grid>
-            </Grid>
-            <Grid container spacing={3}>
-              <Grid item sm={12}>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: book.volumeInfo.description,
-                  }}
-                ></p>
-              </Grid>
-            </Grid>
             </div>
+
+            <Grid className="flex-wrap-reverse" container spacing={12}> 
+                    <Grid item sm={12} justify="center">
+                      <Paper className="homeLink">
+                        <Icon to="/search">Reviews</Icon>
+                      </Paper>
+                    </Grid>
+            </Grid>
           </Grid>
-        
         </>
       ) : (
         <h1>Loading...</h1>
       )}
     </div>
   );
-};
+}
 
 export default Book;
