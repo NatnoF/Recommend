@@ -193,7 +193,6 @@ const Book = () => {
               <Grid className="flex-wrap-reverse" container spacing={4}>
                 <Grid item sm={12} justify="center" className="reviewCard">
                   <Reviews />
-                  <Reviews />
                 </Grid>
               </Grid>
             </div>
