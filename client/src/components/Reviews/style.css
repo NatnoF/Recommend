@@ -1,0 +1,13 @@
+.text {
+    text-align: center;
+    background: #eeeeee;
+  }
+  
+  .MuiGrid-spacing-xs-3 {
+    width: 100% !important;
+    margin-top: -12px;
+  }
+
+.reviewCards {
+    margin-bottom: 10px;
+}
