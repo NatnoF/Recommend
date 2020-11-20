@@ -129,7 +129,7 @@ const Book = () => {
             </div>
 
             <div className="wrapper">
-              <Grid className="flex-wrap-reverse" container spacing={12}>
+              <Grid className="flex-wrap-reverse" container spacing={4}>
                 <Grid item sm={12} justify="center" className="reviewCard">
                   <Paper className="homeLink">
                     <Icon to="/search">User Reviews</Icon>
@@ -137,17 +137,19 @@ const Book = () => {
                 </Grid>
               </Grid>
 
-              <Grid container spacing={3}>
-                <Grid item sm={4}>
+              <Grid container spacing={4} className="wrapper">
+                <Grid item sm={12}>
                   <Card className="reviewCard">
-                    <TextField
-                      id="filled-multiline-static"
-                      label="what's your take?"
-                      multiline
-                      rows={4}
-                      defaultValue="Default Value"
-                      variant="filled"
-                    />
+                    <Grid>
+                      <TextField
+                        id="filled-multiline-static"
+                        label="what's your take?"
+                        multiline
+                        rows={4}
+                        variant="filled"
+                        fullWidth
+                      />
+                    </Grid>
                     <FormControl component="fieldset">
                       <RadioGroup
                         aria-label="recommend"
@@ -167,7 +169,9 @@ const Book = () => {
                         />
                       </RadioGroup>
                     </FormControl>
-                    <button className="btn btn-primary">Submit</button>
+                    <button className="btn btn-primary reviewButton">
+                      Submit
+                    </button>
                   </Card>
                 </Grid>
               </Grid>
