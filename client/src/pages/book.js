@@ -18,21 +18,31 @@ import Card from "@material-ui/core/Card";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
+import Avatar from "@material-ui/core/Avatar";
+import CardHeader from "@material-ui/core/CardHeader";
+import { red } from "@material-ui/core/colors";
 
-const useStyles = makeStyles({
+
+
+
+const useStyles = makeStyles((theme) => ({
   root: {
-    background: "linear-gradient(108deg, #12232E, #007CC7)",
+    // background: "linear-gradient(108deg, #12232E, #007CC7)",
     border: 0,
     marginBottom: 15,
     borderRadius: 15,
     color: "white",
     padding: "5px 30px",
   },
-});
+    avatar: {
+     backgroundColor: red[500],
+    },
+}));
 
 const Book = () => {
   const [book, setBook] = useState({});
   const [count, setCount] = useState(0);
+  const classes = useStyles();
 
   const [value, setValue] = React.useState("recommend");
 
@@ -128,7 +138,16 @@ const Book = () => {
                   />
                 </Grid>
                 <Grid item sm={4}>
-                  <Paper className="review">recommended percentage</Paper>
+                  {/* <Paper className="review">recommended percentage</Paper> */}
+                  <CardHeader
+        avatar={
+          <Avatar aria-label="recipe" className={classes.avatar}>
+            R
+          </Avatar>
+        }
+        title="Reviewer's Username and avatar icon"
+        subheader="November 20, 2020"
+      />
                 </Grid>
               </Grid>
               <Grid container spacing={3}>
