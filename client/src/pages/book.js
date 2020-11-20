@@ -5,11 +5,20 @@ import "./css/book.css";
 import { Icon } from "../components/SidebarMenu/SidebarMenuProperties";
 import Auth from "../utils/Auth";
 import { makeStyles } from "@material-ui/core/styles";
+
 import { UserContext } from "../utils/UserContext";
 import Typography from "@material-ui/core/Typography/";
 import Container from "@material-ui/core/Container";
 
 import Paper from "@material-ui/core/Paper";
+import Radio from "@material-ui/core/Radio";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import Card from "@material-ui/core/Card";
+import TextField from "@material-ui/core/TextField";
+
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormControl from "@material-ui/core/FormControl";
+import FormLabel from "@material-ui/core/FormLabel";
 
 const useStyles = makeStyles({
   root: {
@@ -25,6 +34,13 @@ const useStyles = makeStyles({
 const Book = () => {
   const [book, setBook] = useState({});
   const [count, setCount] = useState(0);
+
+  const [value, setValue] = React.useState("recommend");
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
+
   // eslint-disable-next-line no-unused-vars
   const [user, dispatch] = useContext(UserContext);
 
@@ -59,8 +75,7 @@ const Book = () => {
   return (
     <div className="background">
       {book.volumeInfo ? (
-          <>
-
+        <>
           <Grid container justify="center">
             <Grid className="flex-wrap-reverse" container spacing={10}>
               <Grid item sm={10} justify="center">
@@ -91,39 +106,91 @@ const Book = () => {
             </Grid>
 
             <div className="wrapper">
-            <Grid container spacing={3}>
-              <Grid item sm={4}>
-                <h2 className="font-italic header">{book.volumeInfo.title}</h2>
-                {book.volumeInfo.subtitle && (
-                  <h3 className="font-italic header">
-                    {book.volumeInfo.subtitle}
-                  </h3>
-                )}
-                <p className="font-italic small author">
-                  <em>Written by {book.volumeInfo.authors.join(", ")}</em>
-                </p>
+              <Grid container spacing={3}>
+                <Grid item sm={4}>
+                  <h2 className="font-italic header">
+                    {book.volumeInfo.title}
+                  </h2>
+                  {book.volumeInfo.subtitle && (
+                    <h3 className="font-italic header">
+                      {book.volumeInfo.subtitle}
+                    </h3>
+                  )}
+                  <p className="font-italic small author">
+                    <em>Written by {book.volumeInfo.authors.join(", ")}</em>
+                  </p>
+                </Grid>
+                <Grid item sm={4}>
+                  <img
+                    className="img-thumbnail img-fluid w-100"
+                    src={book.volumeInfo.imageLinks.thumbnail}
+                    alt={book.volumeInfo.title}
+                  />
+                </Grid>
+                <Grid item sm={4}>
+                  <Paper className="review">recommended percentage</Paper>
+                </Grid>
               </Grid>
-              <Grid item sm={4}>
-                <img
-                  className="img-thumbnail img-fluid w-100"
-                  src={book.volumeInfo.imageLinks.thumbnail}
-                  alt={book.volumeInfo.title}
-                />
+              <Grid container spacing={3}>
+                <Grid item sm={12}>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: book.volumeInfo.description,
+                    }}
+                  ></p>
+                </Grid>
               </Grid>
-              <Grid item sm={4}></Grid>
-            </Grid>
-            <Grid container spacing={3}>
-              <Grid item sm={12}>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: book.volumeInfo.description,
-                  }}
-                ></p>
+            </div>
+
+            <div className="wrapper">
+              <Grid className="flex-wrap-reverse" container spacing={4}>
+                <Grid item sm={12} justify="center" className="reviewCard">
+                  <Paper className="homeLink">
+                    <Icon to="/search">User Reviews</Icon>
+                  </Paper>
+                </Grid>
               </Grid>
-            </Grid>
+
+              <Grid container spacing={4} className="wrapper">
+                <Grid item sm={12}>
+                  <Card className="reviewCard">
+                    <Grid>
+                      <TextField
+                        id="filled-multiline-static"
+                        label="what's your take?"
+                        multiline
+                        rows={5}
+                        variant="filled"
+                        fullWidth
+                      />
+                    </Grid>
+                    <FormControl component="fieldset">
+                      <RadioGroup
+                        aria-label="recommend"
+                        name="recommend1"
+                        value={value}
+                        onChange={handleChange}
+                      >
+                        <FormControlLabel
+                          value="true"
+                          control={<Radio />}
+                          label="Recommend"
+                        />
+                        <FormControlLabel
+                          value="false"
+                          control={<Radio />}
+                          label="Not Recommend"
+                        />
+                      </RadioGroup>
+                    </FormControl>
+                    <button className="btn btn-primary reviewButton">
+                      Submit
+                    </button>
+                  </Card>
+                </Grid>
+              </Grid>
             </div>
           </Grid>
-        
         </>
       ) : (
         <h1>Loading...</h1>
