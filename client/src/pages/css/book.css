@@ -35,7 +35,7 @@
 }
 
 .background {
-  background: #eeeeee;
+  background: #EEEEEE;
   /* linear-gradient(
         108deg,
         rgba(32, 54, 71, 1) 0%,
@@ -81,7 +81,4 @@ p {
 .reviewCard {
   padding: 10px;
   justify-content: center;
-}
-
-.reviewButton {
 }

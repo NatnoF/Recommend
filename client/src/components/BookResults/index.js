@@ -4,9 +4,10 @@ import "../Card/Cards.css";
 import Grid from "@material-ui/core/Grid";
 import "./style.css";
 
+
 function BookResults({ books }) {
   return (
-      <div className="cards">
+      <div className="cards background">
         <div className="cards__container">
             {books.length ? (
                 <Grid container spacing={3}>

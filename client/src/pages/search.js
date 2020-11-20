@@ -3,6 +3,7 @@ import SidebarMenu from '../components/SidebarMenu';
 import Feed from '../components/Feed';
 import API from "../utils/API";
 import Grid from '@material-ui/core/Grid';
+import "./css/book.css";
 
 
 
@@ -30,7 +31,7 @@ function Search() {
     };
 
     return (
-        <div className="grid">
+        <div className="grid background">
             <Grid container spacing={3}>
                 <Grid item xs={3}>
                 <SidebarMenu />
