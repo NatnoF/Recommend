@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from 'react'
 import API from "../utils/API";
 import Grid from "@material-ui/core/Grid";
 import "./css/book.css";
 import { Icon } from "../components/SidebarMenu/SidebarMenuProperties";
-
+import Auth from "../utils/Auth";
 import { makeStyles } from "@material-ui/core/styles";
-
+import { UserContext } from "../utils/UserContext";
 import Typography from "@material-ui/core/Typography/";
 import Container from "@material-ui/core/Container";
 
@@ -25,6 +25,8 @@ const useStyles = makeStyles({
 const Book = () => {
   const [book, setBook] = useState({});
   const [count, setCount] = useState(0);
+  // eslint-disable-next-line no-unused-vars
+  const [user, dispatch] = useContext(UserContext);
 
   const getBookInfo = () => {
     API.getBook(window.location.pathname.split("/").pop()).then((res) => {
@@ -38,18 +40,21 @@ const Book = () => {
     setCount(count + 1);
   }
 
-  const handleBookSave = () => {
-    // API.saveBook({
-    //   googleId: book.id,
-    //   title: book.volumeInfo.title,
-    //   subtitle: book.volumeInfo.subtitle,
-    //   link: book.volumeInfo.infoLink,
-    //   authors: book.volumeInfo.authors,
-    //   description: book.volumeInfo.description,
-    //   image: book.volumeInfo.imageLinks.thumbnail
-    // });
-    console.log("Work In Progress");
-  };
+  const handleBookSave = id => {
+    API.saveBook({
+      googleId: book.id,
+      title: book.volumeInfo.title,
+      subtitle: book.volumeInfo.subtitle,
+      link: book.volumeInfo.infoLink,
+      authors: book.volumeInfo.authors,
+      description: book.volumeInfo.description,
+      image: book.volumeInfo.imageLinks.thumbnail,
+      usersSaved: user.username
+    })
+    .catch(err => {
+      API.updateBook(book.id, {user: user.username});
+    });
+};
 
   return (
     <div className="background">
@@ -66,19 +71,21 @@ const Book = () => {
               <Grid item sm={2}>
                 <div className="btn-container">
                   <a
-                    className="btn"
+                    className="btn btn-primary"
                     target="_blank"
                     rel="noopener noreferrer"
                     href={book.volumeInfo.infoLink}
                   >
                     View
                   </a>
-                  <button
-                    onClick={() => handleBookSave()}
-                    className="btn btn-primary"
-                  >
-                    Save
-                  </button>
+                  {Auth.isAuthenticated ? (
+                    <button
+                      onClick={() => handleBookSave()}
+                      className="btn btn-primary"
+                    >
+                      Save
+                    </button>
+                  ): <></>}
                 </div>
               </Grid>
             </Grid>

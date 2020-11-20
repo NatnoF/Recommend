@@ -9,7 +9,6 @@ module.exports = {
 		if (user) {
 			Account.findOne({ username: user })
 				.then(userData => {
-					console.log(userData);
 					const { _id, username } = userData;
 					return res.status(200).json({
 						id: _id,
