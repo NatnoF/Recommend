@@ -1,21 +1,22 @@
-import React, { useState, useEffect, useContext } from 'react'
-import Auth from "../../utils/Auth";
+import React, { useState, useContext } from 'react'
 import { UserContext } from "../../utils/UserContext";
 import "../Feed/Feed.css";
 import { Icon } from "../Saved/SavedProperties";
-import BookResults from "../BookResults";
+import SavedBookResults from "../SavedBookResults";
 import API from '../../utils/API';
 
 const Saved = () => {
   const [books, setBooks] = useState([]);
+  // eslint-disable-next-line no-unused-vars
   const [user, dispatch] = useContext(UserContext);
   const [count, setCount] = useState(0);
 
   const getBookList = () => {
-    API.getSavedBooks({userId: user.username})
+    API.getSavedBooks(user.username)
     .then((res) => {
       setBooks(res.data);
-    })
+    });
+
   };
 
   if (count === 0) {
@@ -29,7 +30,8 @@ const Saved = () => {
         <Icon to="/">Recommend</Icon>
       </div>
       {books.length ? (
-        <BookResults books={books}/>
+        console.log(books),
+        <SavedBookResults books={books} />
       ): <h2 className="text">{"You Have No Books Saved. (Only Users May Save Books)"}</h2>}
     </div>
   );

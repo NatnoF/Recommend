@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import API from "../utils/API";
 import Grid from "@material-ui/core/Grid";
 import "./css/book.css";
@@ -25,6 +25,7 @@ const useStyles = makeStyles({
 const Book = () => {
   const [book, setBook] = useState({});
   const [count, setCount] = useState(0);
+  // eslint-disable-next-line no-unused-vars
   const [user, dispatch] = useContext(UserContext);
 
   const getBookInfo = () => {

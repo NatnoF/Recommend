@@ -1,10 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-function CardItem({ title, image, authors, id }) {
+function CardItem({ title, image, authors, id, }) {
     return (
         <>
-            <li className="cards__item">
+            <li className="cards__item" key={id}>
                 <Link className="cards__item__link" to={`/book/${id}`}>
 
                     <figure className="cards__item__pic-wrap" data-category={title}>
