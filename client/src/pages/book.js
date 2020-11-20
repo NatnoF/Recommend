@@ -27,32 +27,6 @@ const Book = () => {
   const [count, setCount] = useState(0);
   const [user, dispatch] = useContext(UserContext);
 
-  useEffect(() => {
-    if (Auth.isAuthenticated)
-    {
-      fetch('api/users/user', {
-        credentials: 'include'
-      })
-        .then((res) => {
-          console.log(`response to authenticate ${res}`);
-          return res.json(res)
-  
-        })
-        .then(data => {
-          console.log(data);
-          dispatch({
-            type: "GET_USER",
-            payload: data
-          })
-  
-        })
-        .catch((err) => {
-          console.log('Error fetching authorized user.');
-        });
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   const getBookInfo = () => {
     API.getBook(window.location.pathname.split("/").pop()).then((res) => {
       setBook(res.data);
@@ -66,17 +40,18 @@ const Book = () => {
   }
 
   const handleBookSave = id => {
-    const mainBook = book.find(book => book.id === id);
-
     API.saveBook({
-      googleId: mainBook.id,
-      title: mainBook.volumeInfo.title,
-      subtitle: mainBook.volumeInfo.subtitle,
-      link: mainBook.volumeInfo.infoLink,
-      authors: mainBook.volumeInfo.authors,
-      description: mainBook.volumeInfo.description,
-      image: mainBook.volumeInfo.imageLinks.thumbnail,
-      userId: user._id
+      googleId: book.id,
+      title: book.volumeInfo.title,
+      subtitle: book.volumeInfo.subtitle,
+      link: book.volumeInfo.infoLink,
+      authors: book.volumeInfo.authors,
+      description: book.volumeInfo.description,
+      image: book.volumeInfo.imageLinks.thumbnail,
+      usersSaved: user.username
+    })
+    .catch(err => {
+      API.updateBook(book.id, {user: user.username});
     });
 };
 

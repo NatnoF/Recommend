@@ -7,8 +7,7 @@ const reviewSchema = new Schema({
   userId: { type: String, required: true },
   likes: { type: Number },
   dislikes: { type: Number },
-  bookId: { type: String, required: true },
-  comments: { type: [String] }
+  bookId: { type: String, required: true }
 });
 
 const Review = mongoose.model("Review", reviewSchema);

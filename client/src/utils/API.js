@@ -7,8 +7,17 @@ export default {
     return axios.get("/api/google", {params: {q: "title:" + q}});
   },
   // Gets all saved books
-  getSavedBooks: function() {
-    return axios.get("/api/books");
+  getSavedBooks: function(id) {
+    return axios.get("/api/books", id);
+  },
+  // Sees if there's a book saved in the database with the google id
+  getSavedBookById: function(id) {
+    return axios.get("/api/books", + id);
+  },
+  // Updates the users Saved if a book is already in the database
+  updateBook: function(id, bookData)
+  {
+    return axios.put("/api/books/" + id, bookData);
   },
   // Deletes the saved book with the given id
   deleteBook: function(id) {
