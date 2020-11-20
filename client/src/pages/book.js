@@ -145,7 +145,7 @@ const Book = () => {
                         id="filled-multiline-static"
                         label="what's your take?"
                         multiline
-                        rows={4}
+                        rows={5}
                         variant="filled"
                         fullWidth
                       />
