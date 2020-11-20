@@ -9,7 +9,7 @@ const Saved = () => {
       <div className="feedHeader">
         <Icon to="/">Recommend</Icon>
       </div>
-      <BookResults />
+      {/* <BookResults /> */}
     </div>
   );
 }

@@ -23,7 +23,7 @@ function BookResults({ books }) {
                   ))}
                 </Grid>
               ) : (
-                <h2 className="text">{"No Results Found"}</h2>
+                <h2 className="text">{"No Books Found"}</h2>
               )}
         </div>
       </div>
