@@ -100,7 +100,9 @@ const Book = () => {
                     alt={book.volumeInfo.title}
                   />
                 </Grid>
-                <Grid item sm={4}></Grid>
+                <Grid item sm={4}>
+                  <Paper className="review">recommended percentage</Paper>
+                </Grid>
               </Grid>
               <Grid container spacing={3}>
                 <Grid item sm={12}>
@@ -112,7 +114,8 @@ const Book = () => {
                 </Grid>
               </Grid>
             </div>
-
+            
+            <div className="wrapper">
             <Grid className="flex-wrap-reverse" container spacing={12}> 
                     <Grid item sm={12} justify="center">
                       <Paper className="homeLink">
@@ -120,7 +123,9 @@ const Book = () => {
                       </Paper>
                     </Grid>
             </Grid>
+            </div>
           </Grid>
+          
         </>
       ) : (
         <h1>Loading...</h1>

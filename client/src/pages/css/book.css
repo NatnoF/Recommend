@@ -61,6 +61,12 @@ img {
   background-color: #12232E !important;
 }
 
+.review {
+  background-color: #12232E !important;
+  color: #EEFBFB !important;
+  padding: 10px;
+}
+
 .wrapper {
   margin: 0 auto;
   width: 940px;
