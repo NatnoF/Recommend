@@ -7,8 +7,6 @@ import Auth from "../utils/Auth";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { UserContext } from "../utils/UserContext";
-import Typography from "@material-ui/core/Typography/";
-import Container from "@material-ui/core/Container";
 
 import Paper from "@material-ui/core/Paper";
 import Radio from "@material-ui/core/Radio";
@@ -18,7 +16,6 @@ import TextField from "@material-ui/core/TextField";
 
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
-import FormLabel from "@material-ui/core/FormLabel";
 
 const useStyles = makeStyles({
   root: {
