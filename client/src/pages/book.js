@@ -9,6 +9,7 @@ import Paper from "@material-ui/core/Paper";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import Card from "@material-ui/core/Card";
+import TextField from "@material-ui/core/TextField";
 
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
@@ -129,35 +130,44 @@ const Book = () => {
 
             <div className="wrapper">
               <Grid className="flex-wrap-reverse" container spacing={12}>
-                <Grid item sm={12} justify="center">
+                <Grid item sm={12} justify="center" className="reviewCard">
                   <Paper className="homeLink">
-                    <Icon to="/search">Reviews</Icon>
+                    <Icon to="/search">User Reviews</Icon>
                   </Paper>
                 </Grid>
               </Grid>
 
               <Grid container spacing={3}>
                 <Grid item sm={4}>
-                  <Card>
-                  <FormControl component="fieldset">
-                    <RadioGroup
-                      aria-label="recommend"
-                      name="recommend1"
-                      value={value}
-                      onChange={handleChange}
-                    >
-                      <FormControlLabel
-                        value="true"
-                        control={<Radio />}
-                        label="Recommend"
-                      />
-                      <FormControlLabel
-                        value="false"
-                        control={<Radio />}
-                        label="Not Recommend"
-                      />
-                    </RadioGroup>
-                  </FormControl>
+                  <Card className="reviewCard">
+                    <TextField
+                      id="filled-multiline-static"
+                      label="what's your take?"
+                      multiline
+                      rows={4}
+                      defaultValue="Default Value"
+                      variant="filled"
+                    />
+                    <FormControl component="fieldset">
+                      <RadioGroup
+                        aria-label="recommend"
+                        name="recommend1"
+                        value={value}
+                        onChange={handleChange}
+                      >
+                        <FormControlLabel
+                          value="true"
+                          control={<Radio />}
+                          label="Recommend"
+                        />
+                        <FormControlLabel
+                          value="false"
+                          control={<Radio />}
+                          label="Not Recommend"
+                        />
+                      </RadioGroup>
+                    </FormControl>
+                    <button className="btn btn-primary">Submit</button>
                   </Card>
                 </Grid>
               </Grid>

@@ -75,3 +75,8 @@ img {
 p {
   padding-bottom: 10px;
 }
+
+.reviewCard {
+  padding: 10px;
+  justify-content: center;
+}
