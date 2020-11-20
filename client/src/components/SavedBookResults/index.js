@@ -13,11 +13,11 @@ function BookResults({ books }) {
                   {books.map(book => (
                     <Grid item xs={12} sm={6} md={4} lg={3}>
                       <CardItem 
-                        key={book.id}
-                        id={book.id}
-                        title={book.volumeInfo.title}
-                        image={book.volumeInfo.imageLinks.thumbnail}
-                        authors={book.volumeInfo.authors.join(", ")}
+                        key={book.googleId}
+                        id={book.googleId}
+                        title={book.title}
+                        image={book.image}
+                        authors={book.authors.join(", ")}
                       />
                     </Grid>
                   ))}
