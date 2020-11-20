@@ -1,9 +1,10 @@
 import React from "react";
 import CardItem from "../Card/CardItem";
+// STYLES
 import "../Card/Cards.css";
-import Grid from "@material-ui/core/Grid";
 import "./style.css";
-
+// MATERIAL UI
+import Grid from "@material-ui/core/Grid";
 
 function BookResults({ books }) {
   return (

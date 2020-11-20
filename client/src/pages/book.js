@@ -1,23 +1,23 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext } from "react";
 import API from "../utils/API";
-import Grid from "@material-ui/core/Grid";
 import "./css/book.css";
 import { Icon } from "../components/SidebarMenu/SidebarMenuProperties";
 import Auth from "../utils/Auth";
 import { makeStyles } from "@material-ui/core/styles";
-
 import { UserContext } from "../utils/UserContext";
+import { FooterContainer } from "../components/Footer/footercontainer";
+import Reviews from "../components/Reviews";
+import "../components/Reviews/style.css";
 
+// MATERIAL UI
+import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import Card from "@material-ui/core/Card";
 import TextField from "@material-ui/core/TextField";
-
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
-
-import { FooterContainer } from "../components/Footer/footercontainer";
 
 const useStyles = makeStyles({
   root: {
@@ -55,7 +55,7 @@ const Book = () => {
     setCount(count + 1);
   }
 
-  const handleBookSave = id => {
+  const handleBookSave = (id) => {
     API.saveBook({
       googleId: book.id,
       title: book.volumeInfo.title,
@@ -64,12 +64,11 @@ const Book = () => {
       authors: book.volumeInfo.authors,
       description: book.volumeInfo.description,
       image: book.volumeInfo.imageLinks.thumbnail,
-      usersSaved: user.username
-    })
-    .catch(err => {
-      API.updateBook(book.id, {user: user.username});
+      usersSaved: user.username,
+    }).catch((err) => {
+      API.updateBook(book.id, { user: user.username });
     });
-};
+  };
 
   return (
     <div className="background">
@@ -99,7 +98,9 @@ const Book = () => {
                     >
                       Save
                     </button>
-                  ): <></>}
+                  ) : (
+                    <></>
+                  )}
                 </div>
               </Grid>
             </Grid>
@@ -188,13 +189,20 @@ const Book = () => {
                   </Card>
                 </Grid>
               </Grid>
+              
+              <Grid className="flex-wrap-reverse" container spacing={4}>
+                <Grid item sm={12} justify="center" className="reviewCard">
+                  <Reviews />
+                  <Reviews />
+                </Grid>
+              </Grid>
             </div>
           </Grid>
-          
         </>
       ) : (
         <h1>Loading...</h1>
-      )}<FooterContainer />
+      )}
+      <FooterContainer />
     </div>
   );
 };
