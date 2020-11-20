@@ -4,6 +4,7 @@ import Feed from '../components/Feed';
 import API from "../utils/API";
 import Grid from '@material-ui/core/Grid';
 import "./css/book.css";
+import { FooterContainer } from "../components/Footer/footercontainer";
 
 
 
@@ -40,6 +41,7 @@ function Search() {
                 <Feed handleInputChange={handleInputChange} handleFormSubmit={handleFormSubmit} q={q} books={books} />
                 </Grid>
             </Grid>
+            <FooterContainer />
         </div >
     )
 }

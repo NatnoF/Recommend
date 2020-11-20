@@ -17,6 +17,8 @@ import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 
+import { FooterContainer } from "../components/Footer/footercontainer";
+
 const useStyles = makeStyles({
   root: {
     background: "linear-gradient(108deg, #12232E, #007CC7)",
@@ -188,10 +190,11 @@ const Book = () => {
               </Grid>
             </div>
           </Grid>
+          
         </>
       ) : (
         <h1>Loading...</h1>
-      )}
+      )}<FooterContainer />
     </div>
   );
 };
