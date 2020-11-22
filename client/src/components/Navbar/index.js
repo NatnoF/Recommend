@@ -18,7 +18,6 @@ import {
 import Button from '@material-ui/core/Button';
 
 const Navbar = ({toggle}) => {
-  console.log("NAV", Auth.isAuthenticated);
 
   // eslint-disable-next-line no-unused-vars
   const [user, dispatch] = useContext(UserContext);
@@ -31,12 +30,10 @@ const Navbar = ({toggle}) => {
         credentials: 'include'
       })
         .then((res) => {
-          console.log(`response to authenticate ${res}`);
           return res.json(res)
   
         })
         .then(data => {
-          console.log(data);
           dispatch({
             type: "GET_USER",
             payload: data

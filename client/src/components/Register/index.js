@@ -19,7 +19,6 @@ function Register() {
 		})
 			.then((response) => {
 				if (response.status === 200) {
-					console.log('Succesfully registered user!');
 					//relocate to the login page
 
 					fetch('api/users/login', {
@@ -34,7 +33,6 @@ function Register() {
 							if (response.status === 200) { //All good
 								Auth.authenticate(() => { //Update the boolean and take off the cuffs
 									// setRedirectToReferrer(true)
-									console.log(`Response in login ${JSON.stringify(response)}`);
 									history.push("/")
 								});
 							}

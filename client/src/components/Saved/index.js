@@ -30,7 +30,6 @@ const Saved = () => {
         <Icon to="/">Recommend</Icon>
       </div>
       {books.length ? (
-        console.log(books),
         <SavedBookResults books={books} />
       ): <h2 className="text">{"You Have No Books Saved. (Only Users May Save Books)"}</h2>}
     </div>

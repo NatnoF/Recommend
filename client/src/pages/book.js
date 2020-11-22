@@ -84,8 +84,7 @@ const Book = () => {
     <div className="background">
       {book.volumeInfo ? (
         <>
-          <Grid container justify="center">
-            <Grid className="flex-wrap-reverse" container spacing={10}>
+            <Grid className="flex-wrap-reverse" container spacing={0}>
               <Grid item sm={10} justify="center">
                 <Paper className="homeLink">
                   <Icon to="/search">Recommend</Icon>
@@ -162,7 +161,7 @@ const Book = () => {
             </div>
 
             <div className="wrapper">
-              <Grid className="flex-wrap-reverse" container spacing={4}>
+              <Grid className="flex-wrap-reverse" container spacing={0}>
                 <Grid item sm={12} justify="center" className="reviewCard">
                   <Paper className="homeLink">
                     <Icon to="/search">User Reviews</Icon>
@@ -215,7 +214,6 @@ const Book = () => {
                 </Grid>
               </Grid>
             </div>
-          </Grid>
         </>
       ) : (
         <h1>Loading...</h1>

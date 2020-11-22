@@ -18,7 +18,6 @@ module.exports = {
     .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
-    console.log(req.body.user);
     db.Book.findOneAndUpdate({ googleId: req.params.id }, {$addToSet: {usersSaved: req.body.user}})
       .then(dbBook => res.json(dbBook))
       .catch(err => res.status(422).json(err));

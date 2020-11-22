@@ -22,7 +22,6 @@ function Login() {
     /* We need to POST to the API the users info,
         This will get passed down as a prop to the LoginForm */
 	const login = (data) => {
-		console.log('Logging in ' + JSON.stringify(data));
 		fetch('api/users/login', {
 			method: 'POST',
 			body: JSON.stringify(data),
@@ -35,7 +34,6 @@ function Login() {
 				if (response.status === 200) { //All good
 					Auth.authenticate(() => { //Update the boolean and take off the cuffs
 						setRedirectToReferrer(true)
-						console.log(`Response in login ${JSON.stringify(response)}`);
 
 					});
 				}
