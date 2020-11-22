@@ -61,24 +61,22 @@ const Review = () => {
     getReviewInfo();
     getComments();
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getReviewInfo = () => {
-    API.getReview(window.location.pathname.split("/").pop())
-    .then(res => 
+    API.getReview(window.location.pathname.split("/").pop()).then((res) =>
       setReview(res.data[0])
     );
   };
 
-  const handleInputChange = event => {
+  const handleInputChange = (event) => {
     setCommentText(event.target.value);
   };
 
   const getComments = () => {
-    API.getComments(window.location.pathname.split("/").pop())
-    .then(res =>
-      setComments(res.data)  
+    API.getComments(window.location.pathname.split("/").pop()).then((res) =>
+      setComments(res.data)
     );
   };
 
@@ -86,15 +84,14 @@ const Review = () => {
     API.saveComment({
       text: commentText,
       username: user.username,
-      reviewId: window.location.pathname.split("/").pop()
-    })
-    .then(() => {
+      reviewId: window.location.pathname.split("/").pop(),
+    }).then(() => {
       getComments();
       setCommentText("");
     });
   };
 
-  const handleFormSubmit = event => {
+  const handleFormSubmit = (event) => {
     event.preventDefault();
     commentSave();
   };
@@ -119,101 +116,119 @@ const Review = () => {
       <div className="wrapper">
         {review.recommend ? (
           <>
-          <Grid
-            className="flex-wrap-reverse reviewPage"
-            container
-            spacing={4}
-          >
-            <Grid item sm={12} justify="center" className="reviewCard">
-              <Reviews 
-                recommend={review.recommend}
-                text={review.text}
-                username={review.username}
-                likes={review.likes}
-                dislikes={review.dislikes}
-                bookId={review.bookId}
-              />
+            <Grid
+              className="flex-wrap-reverse reviewPage"
+              container
+              spacing={4}
+            >
+              <Grid item sm={12} justify="center" className="reviewCard">
+                <Reviews
+                  recommend={review.recommend}
+                  text={review.text}
+                  username={review.username}
+                  likes={review.likes}
+                  dislikes={review.dislikes}
+                  bookId={review.bookId}
+                />
+              </Grid>
             </Grid>
-          </Grid>
-          {/* WRITE YOUR COMMENT */}
-          <Grid container spacing={4}>
-            <Grid item sm={12}>
-              <Card className="reviewCard">
-                <Grid>
-                  <TextField
-                    id="filled-multiline-static"
-                    label="Your thoughts?"
-                    value={commentText}
-                    onChange={handleInputChange}
-                    multiline
-                    rows={5}
-                    variant="filled"
-                    fullWidth
-                  />
-                </Grid>
-                {Auth.isAuthenticated ? (
-                  <button className="btn btn-primary reviewButton submitButton" onClick={handleFormSubmit}>
-                    Write Comment
-                  </button>
-                ) : (
-                  <button className="btn btn-primary reviewButton submitButton">
-                    Log In To Post A Comment
-                  </button>
-                )}
-              </Card>
+            {/* WRITE YOUR COMMENT */}
+            <Grid container spacing={4}>
+              <Grid item sm={12}>
+                <Card className="reviewCard">
+                  <Grid>
+                    <TextField
+                      id="filled-multiline-static"
+                      label="Your thoughts?"
+                      value={commentText}
+                      onChange={handleInputChange}
+                      multiline
+                      rows={5}
+                      variant="filled"
+                      fullWidth
+                    />
+                  </Grid>
+                  {Auth.isAuthenticated ? (
+                    <button
+                      className="btn btn-primary reviewButton submitButton"
+                      onClick={handleFormSubmit}
+                    >
+                      Write Comment
+                    </button>
+                  ) : (
+                    <button className="btn btn-primary reviewButton submitButton">
+                      Log In To Post A Comment
+                    </button>
+                  )}
+                </Card>
+              </Grid>
             </Grid>
-          </Grid>
 
-          {/* SAVED COMMENTS */}
-          {comments.length ? (
-            <>
-            {comments.map(comment => (
-              <Grid container spacing={4} className="wrapper">
-                <Grid item sm={12}>
-                  <Card className="reviewCard">
-                    <Grid>
-                      <Card className={classes.root} fullwidth>
-                        <CardHeader
-                          avatar={
-                            <Avatar aria-label="recipe" className={classes.avatar}>
-                              {comment.username.charAt(0)}
-                            </Avatar>
-                          }
-                          title={comment.username}
-                          subheader={`Replying To: ${review.username}`}
-                        />
-                        <CardContent>
-                          <Typography variant="body2" color="textSecondary" component="p">
-                            {comment.text.length > 250 ? (comment.text.substring(0,250) + "...") : (comment.text) }
-                          </Typography>
-                        </CardContent>
-                        <CardActions disableSpacing>
-                          <IconButton
-                            className={clsx(classes.expand, {
-                              [classes.expandOpen]: expanded,
-                            })}
-                            onClick={handleExpandClick}
-                            aria-expanded={expanded}
-                            aria-label="show more"
-                          >
-                            <ExpandMoreIcon />
-                          </IconButton>
-                        </CardActions>
-                        <Collapse in={expanded} timeout="auto" unmountOnExit>
-                          <CardContent>
-                            <Typography paragraph>{comment.text}</Typography>
-                          </CardContent>
-                        </Collapse>
+            {/* SAVED COMMENTS */}
+            {comments.length ? (
+              <>
+                {comments.map((comment) => (
+                  <Grid container spacing={4} className="wrapper">
+                    <Grid item sm={12}>
+                      <Card className="reviewCard">
+                        <Grid>
+                          <Card className={classes.root} fullwidth>
+                            <CardHeader
+                              avatar={
+                                <Avatar
+                                  aria-label="recipe"
+                                  className={classes.avatar}
+                                >
+                                  {comment.username.charAt(0)}
+                                </Avatar>
+                              }
+                              title={comment.username}
+                              subheader={`Replying To: ${review.username}`}
+                            />
+                            <CardContent>
+                              <Typography
+                                variant="body2"
+                                color="textSecondary"
+                                component="p"
+                              >
+                                {comment.text.length > 250
+                                  ? comment.text.substring(0, 250) + "..."
+                                  : comment.text}
+                              </Typography>
+                            </CardContent>
+                            <CardActions disableSpacing>
+                              <IconButton
+                                className={clsx(classes.expand, {
+                                  [classes.expandOpen]: expanded,
+                                })}
+                                onClick={handleExpandClick}
+                                aria-expanded={expanded}
+                                aria-label="show more"
+                              >
+                                <ExpandMoreIcon />
+                              </IconButton>
+                            </CardActions>
+                            <Collapse
+                              in={expanded}
+                              timeout="auto"
+                              unmountOnExit
+                            >
+                              <CardContent>
+                                <Typography paragraph>
+                                  {comment.text}
+                                </Typography>
+                              </CardContent>
+                            </Collapse>
+                          </Card>
+                        </Grid>
                       </Card>
                     </Grid>
-                  </Card>
-                </Grid>
-              </Grid>
-            ))}
-            </>
-          ) : (
-            <h2>No Comments Found</h2>
-          )}
+                  </Grid>
+                ))}
+              </>
+            ) : (
+              <h2>No Comments Found</h2>
+            )}
           </>
         ) : (
           <h2>Loading...</h2>

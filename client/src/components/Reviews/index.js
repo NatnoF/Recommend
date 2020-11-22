@@ -9,27 +9,27 @@ import ReviewCard from "./ReviewCard";
 
 function Reviews({ recommend, text, username, likes, dislikes, bookId, id }) {
   return (
-      <>
-    <Grid container spacing={4} className="wrapper">
-      <Grid item sm={12}>
-        <Card className="reviewCard">
-          <Grid>
-            <ReviewCard 
-              recommend={recommend}
-              text={text}
-              username={username}
-              likes={likes}
-              dislikes={dislikes}
-              bookId={bookId}
-              id={id}
-            />
-          </Grid>
-          {/* <button className="btn btn-primary reviewButton">
+    <>
+      <Grid container spacing={4} className="wrapper">
+        <Grid item sm={12}>
+          <Card className="reviewCard">
+            <Grid>
+              <ReviewCard
+                recommend={recommend}
+                text={text}
+                username={username}
+                likes={likes}
+                dislikes={dislikes}
+                bookId={bookId}
+                id={id}
+              />
+            </Grid>
+            {/* <button className="btn btn-primary reviewButton">
             Recommend/Not Recommend
           </button> */}
-        </Card>
+          </Card>
+        </Grid>
       </Grid>
-    </Grid>
     </>
   );
 }

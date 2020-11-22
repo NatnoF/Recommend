@@ -13,10 +13,9 @@ import { red } from "@material-ui/core/colors";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import Button from '@material-ui/core/Button';
-
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,7 +40,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ReviewCard({ recommend, text, username, likes, dislikes, bookId, id }) {
+export default function ReviewCard({
+  recommend,
+  text,
+  username,
+  likes,
+  dislikes,
+  bookId,
+  id,
+}) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -59,7 +66,9 @@ export default function ReviewCard({ recommend, text, username, likes, dislikes,
         }
         action={
           // <IconButton aria-label="settings">
-            <Link to={`/reviews/${id}`}><Button variant="outlined">Comments</Button></Link>
+          <Link to={`/reviews/${id}`}>
+            <Button variant="outlined">Comments</Button>
+          </Link>
           // </IconButton>
         }
         title={username}
@@ -67,7 +76,7 @@ export default function ReviewCard({ recommend, text, username, likes, dislikes,
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          {text.length > 250 ? (text.substring(0,250) + "...") : (text) }
+          {text.length > 250 ? text.substring(0, 250) + "..." : text}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
