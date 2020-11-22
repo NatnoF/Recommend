@@ -12,6 +12,8 @@ import {
   ArrowForward,
   ArrowRight,
 } from "./HeroProperties";
+import Auth from "../../utils/Auth";
+
 
 const Hero = () => {
   const [hover, setHover] = useState(false)
@@ -33,9 +35,15 @@ const Hero = () => {
         <HeroP>Sign up and start your library today!</HeroP>
 
         <HeroBtnWrapper>
-          <Button to="/signup" onMouseEnter={onHover} onMouseLeave={onHover} primary="true" dark="true">
-            Get started {hover ? <ArrowForward /> : <ArrowRight />}
-          </Button>
+          {Auth.isAuthenticated ? (
+            <Button to="/search" onMouseEnter={onHover} onMouseLeave={onHover} primary="true" dark="true">
+              Get started {hover ? <ArrowForward /> : <ArrowRight />}
+            </Button>
+          ): (
+            <Button to="/signup" onMouseEnter={onHover} onMouseLeave={onHover} primary="true" dark="true">
+              Get started {hover ? <ArrowForward /> : <ArrowRight />}
+            </Button>
+          )}
         </HeroBtnWrapper>
       </HeroContent>
     </HeroContainer>
