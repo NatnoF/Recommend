@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import API from "../utils/API";
 import "./css/book.css";
 import { Icon } from "../components/SidebarMenu/SidebarMenuProperties";
@@ -41,17 +41,37 @@ const useStyles = makeStyles((theme) => ({
 
 const Book = () => {
   const [book, setBook] = useState({});
-  const [count, setCount] = useState(0);
   const classes = useStyles();
-
   const [value, setValue] = React.useState("recommend");
+  const [reviewText, setReviewText] = useState("");
+  // eslint-disable-next-line no-unused-vars
+  const [user, dispatch] = useContext(UserContext);
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(() => {
+    getBookInfo();
+    getReviews();
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const getReviews = () => {
+    API.getReviews(window.location.pathname.split("/").pop())
+    .then(res => 
+      setReviews(res.data)
+    )
+    .catch(() =>
+      setReviews([])
+    );
+  };
 
   const handleChange = (event) => {
     setValue(event.target.value);
   };
 
-  // eslint-disable-next-line no-unused-vars
-  const [user, dispatch] = useContext(UserContext);
+  const handleInputChange = event => {
+    setReviewText(event.target.value);
+  };
 
   const getBookInfo = () => {
     API.getBook(window.location.pathname.split("/").pop()).then((res) => {
@@ -59,11 +79,6 @@ const Book = () => {
     });
     // console.log(book);
   };
-
-  if (count === 0) {
-    getBookInfo();
-    setCount(count + 1);
-  }
 
   const handleBookSave = (id) => {
     API.saveBook({
@@ -79,6 +94,26 @@ const Book = () => {
       API.updateBook(book.id, { user: user.username });
     });
   };
+
+  const handleFormSubmit = event => {
+    event.preventDefault();
+    reviewSave();
+};
+
+const reviewSave = () => {
+  API.saveReview({
+    recommend: value,
+    text: reviewText,
+    username: user.username,
+    likes: 0,
+    dislikes: 0,
+    bookId: window.location.pathname.split("/").pop()
+  })
+  .then(() => {
+    getReviews();
+    setReviewText("");
+  });
+}
 
   return (
     <div className="background">
@@ -108,7 +143,9 @@ const Book = () => {
                       Save
                     </button>
                   ) : (
-                    <></>
+                    <a className="btn btn-primary" href="/signin">
+                      Log In To Save
+                    </a>
                   )}
                 </div>
               </Grid>
@@ -176,6 +213,8 @@ const Book = () => {
                       <TextField
                         id="filled-multiline-static"
                         label="what's your take?"
+                        value={reviewText}
+                        onChange={handleInputChange}
                         multiline
                         rows={5}
                         variant="filled"
@@ -190,29 +229,51 @@ const Book = () => {
                         onChange={handleChange}
                       >
                         <FormControlLabel
-                          value="true"
+                          value="Recommended"
                           control={<Radio />}
                           label="Recommend"
                         />
                         <FormControlLabel
-                          value="false"
+                          value="Not Recommended"
                           control={<Radio />}
                           label="Not Recommend"
                         />
                       </RadioGroup>
                     </FormControl>
-                    <button className="btn btn-primary reviewButton">
-                      Submit
-                    </button>
+                    {Auth.isAuthenticated ? (
+                      <button className="btn btn-primary reviewButton" onClick={handleFormSubmit}>
+                        Submit
+                      </button>
+                    ): (
+                      <button className="btn btn-primary reviewButton">
+                        Log In To Submit A Review
+                      </button>
+                    )}
                   </Card>
                 </Grid>
               </Grid>
               
-              <Grid className="flex-wrap-reverse" container spacing={4}>
-                <Grid item sm={12} justify="center" className="reviewCard">
-                  <Reviews />
-                </Grid>
-              </Grid>
+              {reviews.length ? (
+                <>
+                {reviews.map(review => (
+                  <Grid className="flex-wrap-reverse" container spacing={4}>
+                    <Grid item sm={12} justify="center" className="reviewCard">
+                      <Reviews 
+                        recommend={review.recommend}
+                        text={review.text}
+                        username={review.username}
+                        likes={review.likes}
+                        dislikes={review.dislikes}
+                        bookId={review.bookId}
+                        id={review._id}
+                      />
+                    </Grid>
+                  </Grid>
+                ))}
+                </>
+              ): (
+                <h2>No Reviews Found</h2>
+              )}
             </div>
         </>
       ) : (

@@ -8,7 +8,8 @@ import {
     FormH1,
     FormLabel,
     FormInput,
-    FormButton
+    FormButton,
+    Text
 } from './SignUpProperties';
 
 
@@ -40,6 +41,7 @@ const SignUp = ({ onRegister }) => {
                             <FormLabel htmlFor="for">Your Password</FormLabel>
                             <FormInput ref={passwordRef} type="password" name="password" required />
                             <FormButton type="submit">Finish</FormButton>
+                            <Text><a className="btn btn-primary" href="/signin">Have an Account?</a></Text>
                         </Form>
                     </FormContent>
                 </FormWrap>

@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ReviewCard() {
+export default function ReviewCard({ recommend, text, username, likes, dislikes, bookId, id }) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -51,22 +51,20 @@ export default function ReviewCard() {
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
-            R
+            {username.charAt(0)}
           </Avatar>
         }
         action={
           <IconButton aria-label="settings">
-            <MoreVertIcon />
+            <a href={`/reviews/${id}`}><MoreVertIcon /></a>
           </IconButton>
         }
-        title="Reviewer's Username and avatar icon"
-        subheader="November 20, 2020"
+        title={username}
+        subheader={recommend}
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          Review Stuff. Review Stuff. Review Stuff. Review Stuff. Review Stuff.
-          Review Stuff. Review Stuff. Review Stuff. Review Stuff. Review Stuff.
-          Review Stuff.
+          {text.length > 250 ? (text.substring(0,250) + "...") : (text) }
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -89,7 +87,7 @@ export default function ReviewCard() {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Extended Review</Typography>
+          <Typography paragraph>{text}</Typography>
         </CardContent>
       </Collapse>
     </Card>

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Icon } from "../components/SidebarMenu/SidebarMenuProperties";
 import Reviews from "../components/Reviews";
+import { UserContext } from "../utils/UserContext";
 import "./css/book.css";
 import "./css/reviewPageStyles.css";
 import { FooterContainer } from "../components/Footer/footercontainer";
@@ -16,6 +17,8 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 import IconButton from "@material-ui/core/IconButton";
 import { red } from "@material-ui/core/colors";
 import { makeStyles } from "@material-ui/core/styles";
+import API from "../utils/API";
+import Auth from "../utils/Auth";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -41,8 +44,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ReviewPage() {
+const Review = () => {
   const classes = useStyles();
+  const [user, dispatch] = useContext(UserContext);
+  const [review, setReview] = useState({});
+
+  useEffect(() => {
+    getReviewInfo();
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const getReviewInfo = () => {
+    API.getReview(window.location.pathname.split("/").pop())
+    .then(res => 
+      setReview(res.data[0])
+    );
+  };
+
   return (
     <div className="backgroundColor">
       {/* HEADER WITH LINK  */}
@@ -50,23 +69,34 @@ function ReviewPage() {
         <Grid container spacing={12}>
           <Grid item sm={12} justify="center">
             <Paper className="homeLink">
-              <Icon to="search">Reviews</Icon>
+              <Icon to="/search">Reviews</Icon>
             </Paper>
           </Grid>
         </Grid>
       </Grid>
       {/* REVIEW BOX */}
       <div className="wrapper">
-        <Grid
-          className="flex-wrap-reverse"
-          container
-          spacing={4}
-          className="reviewPage"
-        >
-          <Grid item sm={12} justify="center" className="reviewCard">
-            <Reviews />
+        {review.recommend ? (
+          <Grid
+            className="flex-wrap-reverse reviewPage"
+            container
+            spacing={4}
+          >
+            <Grid item sm={12} justify="center" className="reviewCard">
+              <Reviews 
+                recommend={review.recommend}
+                text={review.text}
+                username={review.username}
+                likes={review.likes}
+                dislikes={review.dislikes}
+                bookId={review.bookId}
+              />
+            </Grid>
           </Grid>
-        </Grid>
+        ) : (
+          <h2>Loading...</h2>
+        )}
+
         {/* WRITE YOUR COMMENT */}
         <Grid container spacing={4}>
           <Grid item sm={12}>
@@ -128,6 +158,6 @@ function ReviewPage() {
       <FooterContainer />
     </div>
   );
-}
+};
 
-export default ReviewPage;
+export default Review;
