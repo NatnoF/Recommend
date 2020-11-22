@@ -20,7 +20,7 @@ function App() {
           <Route path="/search" component={SidebarMenu} exact />
           <Route path="/saved" component={Saved} exact />
           <Route path="/book/:id" component={Book} />
-          <Route path="/reviews" component={ReviewPage} />
+          <Route path="/reviews/:id" component={ReviewPage} />
         </Switch>
       </Router>
     </UserProvider>

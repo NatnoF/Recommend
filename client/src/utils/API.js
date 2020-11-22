@@ -39,6 +39,9 @@ export default {
   getUserReviews: function(id) {
     return axios.get("/api/reviews/" + id);
   },
+  getReview: function(id) {
+    return axios.get("/api/reviews/user/" + id);
+  },
   // Creates and saves a review to the database
   saveReview: function(reviewData) {
     return axios.post("/api/reviews", reviewData);

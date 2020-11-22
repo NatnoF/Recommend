@@ -57,7 +57,7 @@ const Book = () => {
 
   const getReviews = () => {
     API.getReviews(window.location.pathname.split("/").pop())
-    .then(res =>
+    .then(res => 
       setReviews(res.data)
     )
     .catch(() =>
@@ -265,6 +265,7 @@ const reviewSave = () => {
                         likes={review.likes}
                         dislikes={review.dislikes}
                         bookId={review.bookId}
+                        id={review._id}
                       />
                     </Grid>
                   </Grid>

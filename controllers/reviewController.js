@@ -11,6 +11,11 @@ module.exports = {
       .then(dbReview => res.json(dbReview))
       .catch(err => res.status(422).json(err));
   },
+  findOne: function(req, res) {
+    db.Review.find({ _id: req.params.id })
+      .then(dbReview => res.json(dbReview))
+      .catch(err => res.status(422).json(err));
+  },
   create: function(req, res) {
     db.Review.create(req.body)
       .then(dbReview => res.json(dbReview))

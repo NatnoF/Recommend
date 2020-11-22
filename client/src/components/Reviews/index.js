@@ -7,7 +7,7 @@ import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import ReviewCard from "./ReviewCard";
 
-function Reviews({ recommend, text, username, likes, dislikes, bookId }) {
+function Reviews({ recommend, text, username, likes, dislikes, bookId, id }) {
   return (
       <>
     <Grid container spacing={4} className="wrapper">
@@ -21,6 +21,7 @@ function Reviews({ recommend, text, username, likes, dislikes, bookId }) {
               likes={likes}
               dislikes={dislikes}
               bookId={bookId}
+              id={id}
             />
           </Grid>
           {/* <button className="btn btn-primary reviewButton">

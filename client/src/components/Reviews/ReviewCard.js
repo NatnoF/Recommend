@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ReviewCard({ recommend, text, username, likes, dislikes, bookId }) {
+export default function ReviewCard({ recommend, text, username, likes, dislikes, bookId, id }) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -56,7 +56,7 @@ export default function ReviewCard({ recommend, text, username, likes, dislikes,
         }
         action={
           <IconButton aria-label="settings">
-            <MoreVertIcon />
+            <a href={`/reviews/${id}`}><MoreVertIcon /></a>
           </IconButton>
         }
         title={username}
