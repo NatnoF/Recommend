@@ -143,7 +143,9 @@ const reviewSave = () => {
                       Save
                     </button>
                   ) : (
-                    <></>
+                    <a className="btn btn-primary" href="/signin">
+                      Log In To Save
+                    </a>
                   )}
                 </div>
               </Grid>
@@ -238,9 +240,15 @@ const reviewSave = () => {
                         />
                       </RadioGroup>
                     </FormControl>
-                    <button className="btn btn-primary reviewButton" onClick={handleFormSubmit}>
-                      Submit
-                    </button>
+                    {Auth.isAuthenticated ? (
+                      <button className="btn btn-primary reviewButton" onClick={handleFormSubmit}>
+                        Submit
+                      </button>
+                    ): (
+                      <button className="btn btn-primary reviewButton">
+                        Log In To Submit A Review
+                      </button>
+                    )}
                   </Card>
                 </Grid>
               </Grid>

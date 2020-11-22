@@ -41,7 +41,7 @@ const SignIn = ({ onLogin }) => {
                             <FormLabel htmlFor="for">Password</FormLabel>
                             <FormInput ref={passwordRef} type="password" name="password" required />
                             <FormButton type="submit">Continue</FormButton>
-                            <Text>Forgot password</Text>
+                            <Text><a className="btn btn-primary" href="/signup">New User?</a></Text>
                         </Form>
                     </FormContent>
                 </FormWrap>
