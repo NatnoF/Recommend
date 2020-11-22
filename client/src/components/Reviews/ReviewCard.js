@@ -59,7 +59,7 @@ export default function ReviewCard({ recommend, text, username, likes, dislikes,
         }
         action={
           // <IconButton aria-label="settings">
-            <Link to={`/reviews/${id}`}><Button>Comments</Button></Link>
+            <Link to={`/reviews/${id}`}><Button variant="outlined">Comments</Button></Link>
           // </IconButton>
         }
         title={username}
