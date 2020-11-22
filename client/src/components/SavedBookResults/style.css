@@ -6,3 +6,11 @@
   width: 100% !important;
   margin-top: -12px;
 }
+
+.background {
+  background-color: #EEEEEE;
+}
+
+.cardItem {
+  padding: 10px;
+}
