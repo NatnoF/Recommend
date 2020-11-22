@@ -1,9 +1,9 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext } from "react";
 import { UserContext } from "../../utils/UserContext";
 import "../Feed/Feed.css";
 import { Icon } from "../Saved/SavedProperties";
 import SavedBookResults from "../SavedBookResults";
-import API from '../../utils/API';
+import API from "../../utils/API";
 
 const Saved = () => {
   const [books, setBooks] = useState([]);
@@ -12,11 +12,9 @@ const Saved = () => {
   const [count, setCount] = useState(0);
 
   const getBookList = () => {
-    API.getSavedBooks(user.username)
-    .then((res) => {
+    API.getSavedBooks(user.username).then((res) => {
       setBooks(res.data);
     });
-
   };
 
   if (count === 0) {
@@ -31,9 +29,13 @@ const Saved = () => {
       </div>
       {books.length ? (
         <SavedBookResults books={books} />
-      ): <h2 className="text">{"You Have No Books Saved. (Only Users May Save Books)"}</h2>}
+      ) : (
+        <h2 className="text">
+          {"You Have No Books Saved. (Only Users May Save Books)"}
+        </h2>
+      )}
     </div>
   );
-}
+};
 
 export default Saved;

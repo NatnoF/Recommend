@@ -1,6 +1,6 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Video from "../../videos/video.mp4";
-import {Button} from '../ButtonElement';
+import { Button } from "../ButtonElement";
 import {
   HeroContainer,
   HeroBackground,
@@ -14,14 +14,12 @@ import {
 } from "./HeroProperties";
 import Auth from "../../utils/Auth";
 
-
 const Hero = () => {
-  const [hover, setHover] = useState(false)
+  const [hover, setHover] = useState(false);
 
   const onHover = () => {
-    setHover(!hover)
-  }
-
+    setHover(!hover);
+  };
 
   return (
     <HeroContainer>
@@ -36,11 +34,23 @@ const Hero = () => {
 
         <HeroBtnWrapper>
           {Auth.isAuthenticated ? (
-            <Button to="/search" onMouseEnter={onHover} onMouseLeave={onHover} primary="true" dark="true">
+            <Button
+              to="/search"
+              onMouseEnter={onHover}
+              onMouseLeave={onHover}
+              primary="true"
+              dark="true"
+            >
               Get started {hover ? <ArrowForward /> : <ArrowRight />}
             </Button>
-          ): (
-            <Button to="/signup" onMouseEnter={onHover} onMouseLeave={onHover} primary="true" dark="true">
+          ) : (
+            <Button
+              to="/signup"
+              onMouseEnter={onHover}
+              onMouseLeave={onHover}
+              primary="true"
+              dark="true"
+            >
               Get started {hover ? <ArrowForward /> : <ArrowRight />}
             </Button>
           )}

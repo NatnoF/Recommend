@@ -1,8 +1,8 @@
-import React, { useEffect,useContext } from 'react'
-import { useHistory } from 'react-router-dom';
+import React, { useEffect, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import Auth from "../../utils/Auth";
 import { UserContext } from "../../utils/UserContext";
-import {FaBars} from 'react-icons/fa';
+import { FaBars } from "react-icons/fa";
 import {
   Nav,
   NavbarContainer,
@@ -13,52 +13,49 @@ import {
   NavLinks,
   NavBtn,
   NavBtnLink,
-  NavPages
+  NavPages,
 } from "./NavbarProperties";
-import Button from '@material-ui/core/Button';
+import Button from "@material-ui/core/Button";
 
-const Navbar = ({toggle}) => {
-
+const Navbar = ({ toggle }) => {
   // eslint-disable-next-line no-unused-vars
   const [user, dispatch] = useContext(UserContext);
   const history = useHistory();
-  
+
   useEffect(() => {
-    if (Auth.isAuthenticated)
-    {
-      fetch('api/users/user', {
-        credentials: 'include'
+    if (Auth.isAuthenticated) {
+      fetch("api/users/user", {
+        credentials: "include",
       })
         .then((res) => {
-          return res.json(res)
-  
+          return res.json(res);
         })
-        .then(data => {
+        .then((data) => {
           dispatch({
             type: "GET_USER",
-            payload: data
-          })
-  
+            payload: data,
+          });
         })
         .catch((err) => {
-          console.log('Error fetching authorized user.');
+          console.log("Error fetching authorized user.");
         });
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  
+
   return (
     <>
       <Nav>
         <NavbarContainer className="nav">
-          <NavLogo to="/"><h1>Recommend</h1></NavLogo>
+          <NavLogo to="/">
+            <h1>Recommend</h1>
+          </NavLogo>
 
           <MobileIcon onClick={toggle}>
             <FaBars />
           </MobileIcon>
 
           <NavMenu>
-
             <NavItem>
               <NavLinks to="about">About</NavLinks>
             </NavItem>
@@ -72,14 +69,17 @@ const Navbar = ({toggle}) => {
             </NavItem>
 
             {Auth.isAuthenticated ? (
-              <Button variant="contained" color="secondary"
+              <Button
+                variant="contained"
+                color="secondary"
                 onClick={() => {
-                  Auth.signout(() => history.push('/signin'))
+                  Auth.signout(() => history.push("/signin"));
                   dispatch({
                     type: "GET_USER",
-                    payload: {}
-                  })
-                }}>
+                    payload: {},
+                  });
+                }}
+              >
                 Logout
               </Button>
             ) : (
@@ -87,7 +87,6 @@ const Navbar = ({toggle}) => {
                 <NavBtnLink to="/signup">Sign Up</NavBtnLink>
               </NavBtn>
             )}
-
           </NavMenu>
 
           {Auth.isAuthenticated ? (
@@ -99,11 +98,10 @@ const Navbar = ({toggle}) => {
               <NavBtnLink to="/signin">Sign In</NavBtnLink>
             </NavBtn>
           )}
-
         </NavbarContainer>
       </Nav>
     </>
   );
-}
+};
 
 export default Navbar;
