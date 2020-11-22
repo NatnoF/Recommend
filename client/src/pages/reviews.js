@@ -111,9 +111,15 @@ const Review = () => {
                   fullWidth
                 />
               </Grid>
-              <button className="btn btn-primary reviewButton submitButton">
-                Write Comment
-              </button>
+              {Auth.isAuthenticated ? (
+                <button className="btn btn-primary reviewButton submitButton">
+                  Write Comment
+                </button>
+              ) : (
+                <button className="btn btn-primary reviewButton submitButton">
+                  Log In To Post A Comment
+                </button>
+              )}
             </Card>
           </Grid>
         </Grid>
