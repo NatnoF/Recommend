@@ -33,7 +33,7 @@ export default {
   },
   // Gets all reviews for a certain book from the database
   getReviews: function(id) {
-    return axios.get("/api/reviews", id);
+    return axios.get("/api/reviews/book/" + id);
   },
   // Gets all reviews by a specifc user from the database
   getUserReviews: function(id) {
