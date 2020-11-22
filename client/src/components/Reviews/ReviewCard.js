@@ -13,8 +13,10 @@ import { red } from "@material-ui/core/colors";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
 import {Link} from 'react-router-dom';
+import MoreVertIcon from "@material-ui/icons/MoreVert";
+import Button from '@material-ui/core/Button';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -56,9 +58,9 @@ export default function ReviewCard({ recommend, text, username, likes, dislikes,
           </Avatar>
         }
         action={
-          <IconButton aria-label="settings">
-            <Link to={`/reviews/${id}`}><MoreVertIcon /></Link>
-          </IconButton>
+          // <IconButton aria-label="settings">
+            <Link to={`/reviews/${id}`}><Button>Comments</Button></Link>
+          // </IconButton>
         }
         title={username}
         subheader={recommend}
