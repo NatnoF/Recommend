@@ -46,11 +46,15 @@ const useStyles = makeStyles((theme) => ({
 
 const Review = () => {
   const classes = useStyles();
+  // eslint-disable-next-line no-unused-vars
   const [user, dispatch] = useContext(UserContext);
   const [review, setReview] = useState({});
+  const [comments, setComments] = useState([]);
+  const [commentText, setCommentText] = useState("");
 
   useEffect(() => {
     getReviewInfo();
+    getComments();
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -60,6 +64,34 @@ const Review = () => {
     .then(res => 
       setReview(res.data[0])
     );
+  };
+
+  const handleInputChange = event => {
+    setCommentText(event.target.value);
+  };
+
+  const getComments = () => {
+    API.getComments(window.location.pathname.split("/").pop())
+    .then(res =>
+      setComments(res.data)  
+    );
+  };
+
+  const commentSave = () => {
+    API.saveComment({
+      text: commentText,
+      username: user.username,
+      reviewId: window.location.pathname.split("/").pop()
+    })
+    .then(() => {
+      getComments();
+      setCommentText("");
+    });
+  };
+
+  const handleFormSubmit = event => {
+    event.preventDefault();
+    commentSave();
   };
 
   return (

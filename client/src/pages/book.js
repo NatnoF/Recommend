@@ -80,7 +80,7 @@ const Book = () => {
     // console.log(book);
   };
 
-  const handleBookSave = (id) => {
+  const handleBookSave = () => {
     API.saveBook({
       googleId: book.id,
       title: book.volumeInfo.title,
@@ -113,7 +113,7 @@ const reviewSave = () => {
     getReviews();
     setReviewText("");
   });
-}
+};
 
   return (
     <div className="background">
