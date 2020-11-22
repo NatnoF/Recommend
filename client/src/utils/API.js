@@ -40,7 +40,7 @@ export default {
     return axios.get("/api/reviews/" + id);
   },
   getReview: function(id) {
-    return axios.get("/api/reviews/user/" + id);
+    return axios.get("/api/reviews/review/" + id);
   },
   // Creates and saves a review to the database
   saveReview: function(reviewData) {

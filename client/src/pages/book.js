@@ -22,9 +22,6 @@ import Avatar from "@material-ui/core/Avatar";
 import CardHeader from "@material-ui/core/CardHeader";
 import { red } from "@material-ui/core/colors";
 
-
-
-
 const useStyles = makeStyles((theme) => ({
   root: {
     // background: "linear-gradient(108deg, #12232E, #007CC7)",
@@ -80,7 +77,7 @@ const Book = () => {
     // console.log(book);
   };
 
-  const handleBookSave = (id) => {
+  const handleBookSave = () => {
     API.saveBook({
       googleId: book.id,
       title: book.volumeInfo.title,
@@ -113,7 +110,7 @@ const reviewSave = () => {
     getReviews();
     setReviewText("");
   });
-}
+};
 
   return (
     <div className="background">
