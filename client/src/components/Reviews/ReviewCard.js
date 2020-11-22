@@ -14,6 +14,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import {Link} from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -56,7 +57,7 @@ export default function ReviewCard({ recommend, text, username, likes, dislikes,
         }
         action={
           <IconButton aria-label="settings">
-            <a href={`/reviews/${id}`}><MoreVertIcon /></a>
+            <Link to={`/reviews/${id}`}><MoreVertIcon /></Link>
           </IconButton>
         }
         title={username}

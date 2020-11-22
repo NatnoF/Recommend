@@ -5,6 +5,8 @@ import { UserContext } from "../utils/UserContext";
 import "./css/book.css";
 import "./css/reviewPageStyles.css";
 import { FooterContainer } from "../components/Footer/footercontainer";
+import API from "../utils/API";
+import Auth from "../utils/Auth";
 
 // MATERIAL UI
 import Grid from "@material-ui/core/Grid";
@@ -16,8 +18,6 @@ import CardHeader from "@material-ui/core/CardHeader";
 import IconButton from "@material-ui/core/IconButton";
 import { red } from "@material-ui/core/colors";
 import { makeStyles } from "@material-ui/core/styles";
-import API from "../utils/API";
-import Auth from "../utils/Auth";
 import CardContent from "@material-ui/core/CardContent";
 import Collapse from "@material-ui/core/Collapse";
 import Typography from "@material-ui/core/Typography";
@@ -110,7 +110,7 @@ const Review = () => {
         <Grid container spacing={12}>
           <Grid item sm={12} justify="center">
             <Paper className="homeLink">
-              <Icon to="/search">Reviews</Icon>
+              <Icon to={`/book/${review.bookId}`}>Reviews</Icon>
             </Paper>
           </Grid>
         </Grid>
@@ -168,38 +168,45 @@ const Review = () => {
           {comments.length ? (
             <>
             {comments.map(comment => (
-              <Grid container spacing={4}>
+              <Grid container spacing={4} className="wrapper">
                 <Grid item sm={12}>
-                  <CardHeader
-                    avatar={
-                      <Avatar aria-label="recipe" className={classes.avatar}>
-                        {comment.username.charAt(0)}
-                      </Avatar>
-                    }
-                    title={comment.username}
-                  />
-                  <CardContent>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                      {comment.text.length > 250 ? (comment.text.substring(0,250) + "...") : (comment.text) }
-                    </Typography>
-                  </CardContent>
-                  <CardActions disableSpacing>
-                    <IconButton
-                      className={clsx(classes.expand, {
-                        [classes.expandOpen]: expanded,
-                      })}
-                      onClick={handleExpandClick}
-                      aria-expanded={expanded}
-                      aria-label="show more"
-                    >
-                      <ExpandMoreIcon />
-                    </IconButton>
-                  </CardActions>
-                  <Collapse in={expanded} timeout="auto" unmountOnExit>
-                    <CardContent>
-                      <Typography paragraph>{comment.text}</Typography>
-                    </CardContent>
-                  </Collapse>
+                  <Card className="reviewCard">
+                    <Grid>
+                      <Card className={classes.root} fullwidth>
+                        <CardHeader
+                          avatar={
+                            <Avatar aria-label="recipe" className={classes.avatar}>
+                              {comment.username.charAt(0)}
+                            </Avatar>
+                          }
+                          title={comment.username}
+                          subheader={`Replying To: ${review.username}`}
+                        />
+                        <CardContent>
+                          <Typography variant="body2" color="textSecondary" component="p">
+                            {comment.text.length > 250 ? (comment.text.substring(0,250) + "...") : (comment.text) }
+                          </Typography>
+                        </CardContent>
+                        <CardActions disableSpacing>
+                          <IconButton
+                            className={clsx(classes.expand, {
+                              [classes.expandOpen]: expanded,
+                            })}
+                            onClick={handleExpandClick}
+                            aria-expanded={expanded}
+                            aria-label="show more"
+                          >
+                            <ExpandMoreIcon />
+                          </IconButton>
+                        </CardActions>
+                        <Collapse in={expanded} timeout="auto" unmountOnExit>
+                          <CardContent>
+                            <Typography paragraph>{comment.text}</Typography>
+                          </CardContent>
+                        </Collapse>
+                      </Card>
+                    </Grid>
+                  </Card>
                 </Grid>
               </Grid>
             ))}

@@ -22,9 +22,6 @@ import Avatar from "@material-ui/core/Avatar";
 import CardHeader from "@material-ui/core/CardHeader";
 import { red } from "@material-ui/core/colors";
 
-
-
-
 const useStyles = makeStyles((theme) => ({
   root: {
     // background: "linear-gradient(108deg, #12232E, #007CC7)",

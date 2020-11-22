@@ -17,9 +17,9 @@ router
   .route("/book/:id")
   .get(reviewController.findAll);
 
-// Matches with "/api/reviews/user/:id"
+// Matches with "/api/reviews/review/:id"
   router
-    .route("/user/:id")
+    .route("/review/:id")
     .get(reviewController.findOne);
 
 module.exports = router;
