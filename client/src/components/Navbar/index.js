@@ -46,7 +46,7 @@ const Navbar = ({ toggle }) => {
   return (
     <>
       <Nav>
-        <NavbarContainer className="nav">
+        <NavbarContainer className="borderBox">
           <NavLogo to="/">
             <h1>Recommend</h1>
           </NavLogo>

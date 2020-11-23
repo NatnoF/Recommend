@@ -165,7 +165,7 @@ const Book = () => {
               </Grid>
               <Grid item sm={4}>
                 {/* <Paper className="review">recommended percentage</Paper> */}
-                <CardHeader
+                {/* <CardHeader
                   avatar={
                     <Avatar aria-label="recipe" className={classes.avatar}>
                       R
@@ -173,7 +173,7 @@ const Book = () => {
                   }
                   title="Reviewer's Username and avatar icon"
                   subheader="November 20, 2020"
-                />
+                /> */}
               </Grid>
             </Grid>
             <Grid container spacing={3}>

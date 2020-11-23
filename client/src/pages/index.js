@@ -3,6 +3,7 @@ import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import { FooterContainer } from "../components/Footer/footercontainer";
+import "./css/book.css"
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
