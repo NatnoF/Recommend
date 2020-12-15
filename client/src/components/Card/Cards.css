@@ -28,6 +28,7 @@ h1 {
   display: flex;
   flex: 1;
   border-radius: 10px;
+  background-color: #12232E;
 }
 
 .cards__item__link {
@@ -65,6 +66,8 @@ h1 {
   font-weight: 700;
   color: #fff;
   background-color: #1f98f4;
+  border: 1px solid #1f98f4;
+  border-radius: 100px;
   box-sizing: border-box;
 }
 
@@ -80,11 +83,15 @@ h1 {
   height: 100%;
   max-height: 100%;
   object-fit: cover;
+  opacity: 0.7;
   transition: all 0.2s linear;
 }
 
 .cards__item__img:hover {
+  opacity: 1;
   transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
 }
 
 .cards__item__info {
@@ -92,7 +99,7 @@ h1 {
 }
 
 .cards__item__text {
-  color: #252e48;
+  color: #E8F0FE;
   font-size: 18px;
   line-height: 24px;
 }
